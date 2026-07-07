@@ -1,0 +1,34 @@
+/* Disclosure bar */
+.disclosure-bar{background:var(--gray-900);color:var(--gray-400);font-size:.72rem;text-align:center;padding:.5rem 1rem;letter-spacing:.02em;}
+.disclosure-bar a{color:var(--orange);}
+
+/* Nav */
+.nav{background:var(--gray-900);position:sticky;top:0;z-index:100;border-bottom:1px solid #2a2a2a;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{font-family:var(--font-head);font-size:1.3rem;font-weight:600;letter-spacing:.03em;color:var(--white);}
+.logo span{color:var(--orange);}
+.logo img{height:34px;display:block;}
+.footer-brand .logo img{height:30px;}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;}
+.nav-links a{font-family:var(--font-head);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#ccc;transition:color .15s;}
+.nav-links a:hover{color:var(--orange);}
+.nav-cta{background:var(--orange);color:var(--white)!important;padding:.6rem 1.3rem;border-radius:3px;font-size:.78rem!important;}
+.nav-cta:hover{background:var(--orange-dk);color:var(--white)!important;}
+
+/* Footer */
+footer{background:var(--gray-900);color:#999;padding:60px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
+.footer-brand .logo{margin-bottom:.8rem;}
+.footer-brand p{font-size:.88rem;color:#888;max-width:280px;}
+.footer-col h5{font-family:var(--font-head);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:1rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-col a{font-size:.88rem;color:#999;transition:color .15s;}
+.footer-col a:hover{color:var(--orange);}
+.footer-bottom{border-top:1px solid #2a2a2a;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.8rem;}
+.footer-legal{display:flex;gap:1.2rem;}
+.footer-legal a{color:#999;}
+.footer-legal a:hover{color:var(--orange);}
+
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr;}
+}

@@ -1,0 +1,8 @@
+{
+  "name": "grid-escape",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "deploy": "npm run build && wrangler deploy"
+  }
+}

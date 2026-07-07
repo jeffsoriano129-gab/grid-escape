@@ -16,6 +16,7 @@
 <meta name="description" content="Guides, reviews, and news on off-grid power, solar energy, camping, and van life.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="chrome.css">
 <style>
 :root{
   --orange:#e8760a; --orange-dk:#c95f00;
@@ -29,23 +30,6 @@ body{font-family:var(--font-body);color:var(--gray-700);line-height:1.6;backgrou
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
 h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
-
-/* Disclosure bar */
-.disclosure-bar{background:var(--gray-900);color:var(--gray-400);font-size:.72rem;text-align:center;padding:.5rem 1rem;letter-spacing:.02em;}
-.disclosure-bar a{color:var(--orange);}
-
-/* Nav */
-.nav{background:var(--gray-900);position:sticky;top:0;z-index:100;border-bottom:1px solid #2a2a2a;}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
-.logo{font-family:var(--font-head);font-size:1.3rem;font-weight:600;letter-spacing:.03em;color:var(--white);}
-.logo span{color:var(--orange);}
-.logo img{height:34px;display:block;}
-.footer-brand .logo img{height:30px;}
-.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;}
-.nav-links a{font-family:var(--font-head);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#ccc;transition:color .15s;}
-.nav-links a:hover{color:var(--orange);}
-.nav-cta{background:var(--orange);color:var(--white)!important;padding:.6rem 1.3rem;border-radius:3px;font-size:.78rem!important;}
-.nav-cta:hover{background:var(--orange-dk);color:var(--white)!important;}
 
 /* Section rhythm */
 .section{padding:80px 0;}
@@ -145,22 +129,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .newsletter-form input{flex:1;padding:.9rem 1rem;border-radius:3px;border:1px solid #444;background:#242424;color:var(--white);font-family:var(--font-body);}
 .newsletter-form input::placeholder{color:#888;}
 
-/* Footer */
-footer{background:var(--gray-900);color:#999;padding:60px 0 24px;}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
-.footer-brand .logo{margin-bottom:.8rem;}
-.footer-brand p{font-size:.88rem;color:#888;max-width:280px;}
-.footer-col h5{font-family:var(--font-head);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:1rem;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
-.footer-col a{font-size:.88rem;color:#999;transition:color .15s;}
-.footer-col a:hover{color:var(--orange);}
-.footer-bottom{border-top:1px solid #2a2a2a;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.8rem;}
-.footer-legal{display:flex;gap:1.2rem;}
-.footer-legal a{color:#999;}
-.footer-legal a:hover{color:var(--orange);}
-
 @media (max-width:900px){
-  .article-grid,.product-grid,.news-grid,.footer-grid{grid-template-columns:1fr;}
+  .article-grid,.product-grid,.news-grid{grid-template-columns:1fr;}
   .section-head{flex-direction:column;align-items:flex-start;gap:.8rem;}
 }
 </style>
@@ -169,20 +139,7 @@ footer{background:var(--gray-900);color:#999;padding:60px 0 24px;}
 
 <div class="disclosure-bar">This site contains affiliate links. As an Amazon Associate, I earn from qualifying purchases. <a href="affiliate-disclosure.html">Learn more</a></div>
 
-<nav class="nav">
-  <div class="wrap nav-inner">
-    <a href="index.html" class="logo"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/Grid-escape%20logo.png" alt="Grid Escape logo"></a>
-    <ul class="nav-links">
-      <li><a href="articles.html">Articles</a></li>
-      <li><a href="solar.html">Solar</a></li>
-      <li><a href="articles.html#camping">Camping</a></li>
-      <li><a href="articles.html#vanlife">Van Life</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<!--@@HEADER@@-->
 
 <section class="hero">
   <div class="wrap">
@@ -347,49 +304,7 @@ footer{background:var(--gray-900);color:#999;padding:60px 0 24px;}
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/Grid-escape%20logo.png" alt="Grid Escape logo"></a>
-        <p>Independent guides, reviews, and news on off-grid power, solar energy, camping, and van life.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Topics</h5>
-        <ul>
-          <li><a href="solar.html">Solar</a></li>
-          <li><a href="articles.html#camping">Camping</a></li>
-          <li><a href="articles.html#vanlife">Van Life</a></li>
-          <li><a href="news.html">News</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Site</h5>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="articles.html">All Articles</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Grid Escape. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="affiliate-disclosure.html">Disclosure</a>
-        <a href="privacy-policy.html">Privacy</a>
-        <a href="terms-and-conditions.html">Terms</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<!--@@FOOTER@@-->
 
 </body>
 </html>

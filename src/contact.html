@@ -16,6 +16,7 @@
 <meta name="description" content="Get in touch with Grid Escape — questions, corrections, topic suggestions, or partnership inquiries.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="chrome.css">
 <style>
 :root{
   --orange:#e8760a; --orange-dk:#c95f00;
@@ -28,19 +29,6 @@ body{font-family:var(--font-body);color:var(--gray-700);line-height:1.6;backgrou
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
-
-/* Disclosure bar */
-.disclosure-bar{background:var(--gray-900);color:var(--gray-400);font-size:.72rem;text-align:center;padding:.5rem 1rem;letter-spacing:.02em;}
-.disclosure-bar a{color:var(--orange);}
-
-/* Nav */
-.nav{background:var(--gray-900);position:sticky;top:0;z-index:100;border-bottom:1px solid #2a2a2a;}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
-.logo{font-family:var(--font-head);font-size:1.3rem;font-weight:600;letter-spacing:.03em;color:var(--white);}
-.logo span{color:var(--orange);}
-.nav-links{display:flex;gap:2.2rem;list-style:none;}
-.nav-links a{font-family:var(--font-head);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#ccc;transition:color .15s;}
-.nav-links a:hover{color:var(--orange);}
 
 /* Breadcrumb hero */
 .article-hero{background:var(--gray-900);color:var(--white);padding:60px 0 50px;}
@@ -115,23 +103,6 @@ img{max-width:100%;display:block;}
 .ac-title{font-family:var(--font-head);font-size:1.05rem;font-weight:600;color:var(--gray-900);margin:.5rem 0 .6rem;line-height:1.35;}
 .ac-meta{font-size:.78rem;color:var(--gray-400);}
 
-/* Footer */
-.footer{background:var(--gray-900);color:#ccc;padding:60px 0 30px;}
-.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid #2a2a2a;}
-@media (max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
-.footer-logo{font-family:var(--font-head);font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:.8rem;}
-.footer-logo span{color:var(--orange);}
-.footer-desc{font-size:.85rem;color:#999;line-height:1.6;max-width:280px;}
-.footer-col-title{font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:1rem;}
-.footer-col ul{list-style:none;}
-.footer-col li{margin-bottom:.6rem;}
-.footer-col a{font-size:.85rem;color:#999;transition:color .15s;}
-.footer-col a:hover{color:var(--orange);}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;font-size:.78rem;color:#777;flex-wrap:wrap;gap:1rem;}
-.footer-legal{display:flex;gap:1.2rem;}
-.footer-legal a{color:#777;}
-.footer-legal a:hover{color:var(--orange);}
-
 .contact-hero{background:var(--gray-900);color:var(--white);padding:70px 0 60px;}
 .contact-hero .breadcrumb{font-size:.78rem;color:var(--gray-400);margin-bottom:1.2rem;}
 .contact-hero .breadcrumb a{color:var(--gray-400);}
@@ -167,18 +138,7 @@ img{max-width:100%;display:block;}
 
 <div class="disclosure-bar">This post contains affiliate links. As an Amazon Associate, Grid Escape earns from qualifying purchases. <a href="affiliate-disclosure.html">Learn more</a></div>
 
-<nav class="nav">
-  <div class="wrap nav-inner">
-    <a href="index.html" class="logo">GRID<span>ESCAPE</span></a>
-    <ul class="nav-links">
-      <li><a href="articles.html">Articles</a></li>
-      <li><a href="articles.html#solar">Solar</a></li>
-      <li><a href="articles.html#camping">Camping</a></li>
-      <li><a href="articles.html#vanlife">Van life</a></li>
-      <li><a href="news.html">News</a></li>
-    </ul>
-  </div>
-</nav>
+<!--@@HEADER@@-->
 
 <header class="contact-hero">
   <div class="wrap">
@@ -254,51 +214,7 @@ img{max-width:100%;display:block;}
   </div>
 </section>
 
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">GRID<span>ESCAPE</span></div>
-        <p class="footer-desc">Independent guides for off-grid power, solar energy, camping, and van life. No paid placements, ever.</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Topics</div>
-        <ul>
-          <li><a href="articles.html#solar">Solar Panels</a></li>
-          <li><a href="articles.html#solar">Power Stations</a></li>
-          <li><a href="articles.html#vanlife">Van Life</a></li>
-          <li><a href="articles.html#camping">Camping Gear</a></li>
-          <li><a href="articles.html#solar">Batteries</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Site</div>
-        <ul>
-          <li><a href="articles.html">Articles</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Legal</div>
-        <ul>
-          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Grid Escape. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="affiliate-disclosure.html">Disclosure</a>
-        <a href="privacy-policy.html">Privacy</a>
-        <a href="terms-and-conditions.html">Terms</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<!--@@FOOTER@@-->
 
 </body>
 </html>
