@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Grid Escape</title>
+<meta name="description" content="Grid Escape is an independent guide to off-grid power, solar energy, camping, and van life — built by a solo developer learning and documenting the process in public.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#e8760a; --orange-dk:#c95f00;
+  --gray-900:#1a1a1a; --gray-700:#333333; --gray-500:#666666; --gray-400:#888888;
+  --gray-200:#e2e2e2; --gray-100:#f5f5f3; --white:#ffffff;
+  --font-head:'Oswald',sans-serif; --font-body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);color:var(--gray-700);line-height:1.6;background:var(--white);}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* Disclosure bar */
+.disclosure-bar{background:var(--gray-900);color:var(--gray-400);font-size:.72rem;text-align:center;padding:.5rem 1rem;letter-spacing:.02em;}
+.disclosure-bar a{color:var(--orange);}
+
+/* Nav */
+.nav{background:var(--gray-900);position:sticky;top:0;z-index:100;border-bottom:1px solid #2a2a2a;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{font-family:var(--font-head);font-size:1.3rem;font-weight:600;letter-spacing:.03em;color:var(--white);}
+.logo span{color:var(--orange);}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{font-family:var(--font-head);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#ccc;transition:color .15s;}
+.nav-links a:hover{color:var(--orange);}
+
+/* Breadcrumb hero */
+.article-hero{background:var(--gray-900);color:var(--white);padding:60px 0 50px;}
+.breadcrumb{font-size:.78rem;color:var(--gray-400);margin-bottom:1.2rem;}
+.breadcrumb a{color:var(--gray-400);}
+.breadcrumb a:hover{color:var(--orange);}
+.cat-tag{display:inline-block;background:var(--orange);color:var(--white);font-family:var(--font-head);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;border-radius:2px;margin-bottom:1.2rem;}
+.article-hero h1{font-family:var(--font-head);font-size:50px;line-height:1.15;font-weight:600;max-width:820px;margin-bottom:1.2rem;}
+.article-meta{display:flex;gap:1.5rem;font-size:.85rem;color:var(--gray-400);}
+
+/* Hero image */
+.hero-img-wrap{max-width:1140px;margin:-30px auto 0;padding:0 24px;}
+.ph{background:var(--gray-100);border:1px dashed var(--gray-200);color:var(--gray-400);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;text-align:center;padding:1rem;}
+.hero-img{min-height:420px;border-radius:4px;}
+
+/* Layout */
+.article-layout{display:grid;grid-template-columns:1fr 320px;gap:60px;padding:60px 0 80px;}
+@media (max-width:900px){.article-layout{grid-template-columns:1fr;}}
+
+/* Article body typography */
+.article-body h2{font-family:var(--font-head);font-size:1.7rem;font-weight:600;color:var(--gray-900);margin:2.2rem 0 1rem;}
+.article-body h3{font-family:var(--font-head);font-size:1.25rem;font-weight:600;color:var(--gray-900);margin:1.8rem 0 .8rem;}
+.article-body p{font-size:1rem;color:var(--gray-700);margin-bottom:1.1rem;line-height:1.75;}
+.article-body ul,.article-body ol{margin:0 0 1.1rem 1.3rem;color:var(--gray-700);}
+.article-body li{margin-bottom:.5rem;line-height:1.7;}
+.intro-quote{border-left:4px solid var(--orange);padding:.2rem 0 .2rem 1.25rem;font-size:1.15rem;color:var(--gray-900);font-weight:500;margin-bottom:1.8rem;}
+
+/* Callout */
+.callout{background:#fff8ee;border-left:4px solid var(--orange);padding:1.1rem 1.25rem;margin:1.75rem 0;border-radius:0 2px 2px 0;}
+.callout-title{font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:.3rem;}
+.callout p{font-size:.9rem;color:var(--gray-700);margin-bottom:0;line-height:1.65;}
+
+/* Inline image */
+.inline-img-wrap{margin:1.8rem 0;}
+.inline-img{min-height:260px;border-radius:3px;}
+.inline-img-caption{font-size:.8rem;color:var(--gray-400);margin-top:.5rem;font-style:italic;}
+
+/* Tags */
+.article-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin:2.2rem 0 0;padding-top:2rem;border-top:1px solid var(--gray-200);}
+.article-tag-pill{font-family:var(--font-head);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gray-200);color:var(--gray-700);padding:.3rem .85rem;border-radius:100px;transition:all .18s;}
+.article-tag-pill:hover{border-color:var(--orange);color:var(--orange);}
+
+/* Sidebar */
+.sidebar-widget{background:var(--gray-100);border-radius:4px;padding:1.5rem;margin-bottom:1.5rem;}
+.sidebar-widget-title{font-family:var(--font-head);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-900);margin-bottom:1rem;}
+.toc{position:sticky;top:96px;}
+.toc ul{list-style:none;}
+.toc li{margin-bottom:.6rem;}
+.toc a{font-size:.88rem;color:var(--gray-700);transition:color .15s;}
+.toc a:hover{color:var(--orange);}
+.newsletter-widget{background:var(--gray-900);color:var(--white);border-radius:4px;padding:1.5rem;margin-bottom:1.5rem;}
+.newsletter-widget .sidebar-widget-title{color:var(--white);}
+.newsletter-widget p{font-size:.85rem;color:#bbb;margin-bottom:1rem;line-height:1.5;}
+.newsletter-input{width:100%;padding:.6rem .8rem;border:1px solid #444;background:#242424;color:var(--white);border-radius:2px;font-size:.85rem;margin-bottom:.6rem;}
+.newsletter-btn{width:100%;background:var(--orange);color:var(--white);font-family:var(--font-head);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.65rem;border:none;border-radius:2px;cursor:pointer;transition:background .18s;}
+.newsletter-btn:hover{background:var(--orange-dk);}
+.related-mini{display:flex;gap:.8rem;margin-bottom:1rem;align-items:flex-start;}
+.related-mini-img{width:64px;height:56px;flex-shrink:0;border-radius:2px;font-size:.6rem;}
+.related-mini-title{font-size:.85rem;font-weight:600;color:var(--gray-900);line-height:1.35;}
+.related-mini-meta{font-size:.72rem;color:var(--gray-400);margin-top:.2rem;}
+
+/* Related articles bottom */
+.related-section{background:var(--gray-100);padding:70px 0;}
+.related-section .section-title{font-family:var(--font-head);font-size:1.7rem;font-weight:600;color:var(--gray-900);margin-bottom:2rem;}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;}
+@media (max-width:900px){.related-grid{grid-template-columns:1fr;}}
+.article-card{background:var(--white);border-radius:4px;overflow:hidden;transition:transform .18s;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.article-card:hover{transform:translateY(-3px);}
+.ac-img{min-height:170px;}
+.ac-body{padding:1.2rem 1.3rem 1.4rem;}
+.ac-tag{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);}
+.ac-title{font-family:var(--font-head);font-size:1.05rem;font-weight:600;color:var(--gray-900);margin:.5rem 0 .6rem;line-height:1.35;}
+.ac-meta{font-size:.78rem;color:var(--gray-400);}
+
+/* Footer */
+.footer{background:var(--gray-900);color:#ccc;padding:60px 0 30px;}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid #2a2a2a;}
+@media (max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
+.footer-logo{font-family:var(--font-head);font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:.8rem;}
+.footer-logo span{color:var(--orange);}
+.footer-desc{font-size:.85rem;color:#999;line-height:1.6;max-width:280px;}
+.footer-col-title{font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:1rem;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:.6rem;}
+.footer-col a{font-size:.85rem;color:#999;transition:color .15s;}
+.footer-col a:hover{color:var(--orange);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;font-size:.78rem;color:#777;flex-wrap:wrap;gap:1rem;}
+.footer-legal{display:flex;gap:1.2rem;}
+.footer-legal a{color:#777;}
+.footer-legal a:hover{color:var(--orange);}
+
+.about-hero{background:var(--gray-900);color:var(--white);padding:80px 0 70px;}
+.about-hero .breadcrumb{font-size:.78rem;color:var(--gray-400);margin-bottom:1.2rem;}
+.about-hero .breadcrumb a{color:var(--gray-400);}
+.about-hero .breadcrumb a:hover{color:var(--orange);}
+.about-eyebrow{display:inline-block;background:var(--orange);color:var(--white);font-family:var(--font-head);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;border-radius:2px;margin-bottom:1.2rem;}
+.about-hero h1{font-family:var(--font-head);font-size:50px;font-weight:600;margin-bottom:1rem;max-width:700px;}
+.about-hero p{max-width:620px;color:#bbb;font-size:1.1rem;line-height:1.65;}
+
+.about-section{padding:80px 0;}
+.about-section.alt{background:var(--gray-100);}
+.about-narrow{max-width:760px;margin:0 auto;}
+.about-narrow h2{font-family:var(--font-head);font-size:1.7rem;font-weight:600;color:var(--gray-900);margin-bottom:1.2rem;}
+.about-narrow p{font-size:1rem;color:var(--gray-700);line-height:1.75;margin-bottom:1.1rem;}
+
+.founder-block{display:grid;grid-template-columns:220px 1fr;gap:2.5rem;align-items:start;max-width:820px;margin:0 auto;}
+@media (max-width:700px){.founder-block{grid-template-columns:1fr;}}
+.founder-photo{border-radius:4px;min-height:220px;}
+.founder-name{font-family:var(--font-head);font-size:1.15rem;font-weight:600;color:var(--gray-900);margin-bottom:.2rem;}
+.founder-role{font-size:.85rem;color:var(--orange);font-weight:600;letter-spacing:.03em;margin-bottom:1rem;}
+
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;max-width:960px;margin:2rem auto 0;}
+@media (max-width:800px){.values-grid{grid-template-columns:1fr;}}
+.value-card{background:var(--white);border:1px solid var(--gray-200);border-radius:4px;padding:1.6rem 1.5rem;}
+.value-card .v-title{font-family:var(--font-head);font-size:1rem;font-weight:600;color:var(--gray-900);margin-bottom:.5rem;}
+.value-card p{font-size:.9rem;color:var(--gray-500);line-height:1.6;margin:0;}
+
+.topics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:960px;margin:2rem auto 0;}
+@media (max-width:800px){.topics-grid{grid-template-columns:1fr;}}
+.topic-card{display:block;background:var(--gray-900);color:var(--white);border-radius:4px;padding:1.8rem 1.6rem;transition:background .18s;}
+.topic-card:hover{background:#262626;}
+.topic-card .t-title{font-family:var(--font-head);font-size:1.1rem;font-weight:600;margin-bottom:.4rem;}
+.topic-card p{font-size:.85rem;color:#aaa;margin:0;line-height:1.55;}
+
+.about-cta{background:var(--orange);color:var(--white);padding:60px 0;text-align:center;}
+.about-cta h2{font-family:var(--font-head);font-size:1.6rem;font-weight:600;margin-bottom:.6rem;}
+.about-cta p{color:#fff2e6;margin-bottom:1.4rem;}
+.about-cta-btn{display:inline-block;background:var(--gray-900);color:var(--white);font-family:var(--font-head);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 2rem;border-radius:2px;transition:background .18s;}
+.about-cta-btn:hover{background:#000;}
+
+</style>
+</head>
+<body>
+
+<div class="disclosure-bar">This post contains affiliate links. As an Amazon Associate, Grid Escape earns from qualifying purchases. <a href="affiliate-disclosure.html">Learn more</a></div>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">GRID<span>ESCAPE</span></a>
+    <ul class="nav-links">
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="articles.html#solar">Solar</a></li>
+      <li><a href="articles.html#camping">Camping</a></li>
+      <li><a href="articles.html#vanlife">Van life</a></li>
+      <li><a href="news.html">News</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="about-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
+    <span class="about-eyebrow">About Grid Escape</span>
+    <h1>Practical off-grid guides, without the noise.</h1>
+    <p>Grid Escape is an independent site covering off-grid power, solar energy, camping, and van life — built to answer the questions we found ourselves googling at 11pm before a trip.</p>
+  </div>
+</header>
+
+<section class="about-section">
+  <div class="wrap about-narrow">
+    <h2>Why This Site Exists</h2>
+    <p>Off-grid power has a steep learning curve. Between watt-hours, amp-hours, charge controllers, and a flood of gear reviews that all seem to disagree with each other, it's easy to spend more time researching than actually getting outside or on the road.</p>
+    <p>Grid Escape started as a way to write down clear, practical answers to the questions that kept coming up — how solar systems actually work, how to size a battery for a weekend trip, what a van electrical build really needs. The goal is simple: explain things the way we wish they'd been explained to us the first time.</p>
+  </div>
+</section>
+
+<section class="about-section alt">
+  <div class="wrap">
+    <div class="founder-block">
+      <div class="ph founder-photo">Founder Photo<br>400 × 400px</div>
+      <div>
+        <div class="founder-name">J. Soriano</div>
+        <div class="founder-role">Founder, Grid Escape</div>
+        <p>Jeff has spent over 12 years building and designing websites, and started Grid Escape after getting pulled into off-grid power out of personal curiosity — first for camping trips, then for a van build. This site is a solo project, written and maintained independently, with no in-house team or newsroom behind it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="wrap about-narrow">
+    <h2>How We Approach Content</h2>
+    <p>Grid Escape earns money through affiliate commissions when readers buy products through certain links on the site — full details are on our <a href="affiliate-disclosure.html" style="color:var(--orange); font-weight:600;">affiliate disclosure page</a>. That relationship never changes what gets written or how a topic is explained.</p>
+  </div>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="v-title">Plain Explanations</div>
+      <p>No unnecessary jargon. If a term needs a specialized dictionary to understand, we're not doing our job.</p>
+    </div>
+    <div class="value-card">
+      <div class="v-title">Practical First</div>
+      <p>Every guide is written to answer a real decision someone's trying to make, not to pad out a word count.</p>
+    </div>
+    <div class="value-card">
+      <div class="v-title">Honest About What We Know</div>
+      <p>This is a growing, independent site. We'd rather say "we're not sure" than present a guess as certainty.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section alt">
+  <div class="wrap">
+    <div class="about-narrow" style="text-align:center;">
+      <h2>What We Cover</h2>
+    </div>
+    <div class="topics-grid">
+      <a href="solar.html" class="topic-card">
+        <div class="t-title">Solar</div>
+        <p>Off-grid solar systems, panels, charge controllers, and batteries explained in plain language.</p>
+      </a>
+      <a href="articles.html" class="topic-card">
+        <div class="t-title">Van Life</div>
+        <p>Electrical builds, power planning, and the basics of living and working from the road.</p>
+      </a>
+      <a href="articles.html" class="topic-card">
+        <div class="t-title">Camping</div>
+        <p>Portable power stations, watt-hour math, and gear that actually holds up outdoors.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about-cta">
+  <div class="wrap">
+    <h2>Have a question or a topic idea?</h2>
+    <p>We're always looking for what to write next.</p>
+    <a href="contact.html" class="about-cta-btn">Get in Touch</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">GRID<span>ESCAPE</span></div>
+        <p class="footer-desc">Independent guides for off-grid power, solar energy, camping, and van life. No paid placements, ever.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Topics</div>
+        <ul>
+          <li><a href="articles.html#solar">Solar Panels</a></li>
+          <li><a href="articles.html#solar">Power Stations</a></li>
+          <li><a href="articles.html#vanlife">Van Life</a></li>
+          <li><a href="articles.html#camping">Camping Gear</a></li>
+          <li><a href="articles.html#solar">Batteries</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Site</div>
+        <ul>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <ul>
+          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Grid Escape. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="affiliate-disclosure.html">Disclosure</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-and-conditions.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
