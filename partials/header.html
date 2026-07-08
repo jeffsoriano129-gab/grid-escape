@@ -1,7 +1,12 @@
 <nav class="nav">
   <div class="wrap nav-inner">
     <a href="index.html" class="logo"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/Grid-escape%20logo.png" alt="Grid Escape logo"></a>
-    <ul class="nav-links">
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="articles.html">Articles</a></li>
       <li><a href="solar.html">Solar</a></li>
       <li><a href="articles.html#camping">Camping</a></li>
@@ -11,4 +16,40 @@
       <li><a href="contact.html" class="nav-cta">Contact</a></li>
     </ul>
   </div>
+  <div class="nav-overlay" id="navOverlay"></div>
 </nav>
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  var overlay = document.getElementById('navOverlay');
+  if (!toggle || !links || !overlay) return;
+
+  function closeMenu(){
+    links.classList.remove('open');
+    overlay.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+  }
+  function openMenu(){
+    links.classList.add('open');
+    overlay.classList.add('open');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('nav-open');
+  }
+
+  toggle.addEventListener('click', function(){
+    if (links.classList.contains('open')) closeMenu();
+    else openMenu();
+  });
+  overlay.addEventListener('click', closeMenu);
+  links.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') closeMenu();
+  });
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 900) closeMenu();
+  });
+})();
+</script>

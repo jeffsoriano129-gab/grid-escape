@@ -59,7 +59,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 }
 .hero .wrap{position:relative;z-index:1;}
 .hero-wrap{max-width:40%;}
-.hero h1{font-size:50px;line-height:1.15;color:var(--white);margin-bottom:1.2rem;}
+.hero h1{font-size:5em;line-height:1.15;color:var(--white);margin-bottom:1.2rem;}
 .hero p{font-size:1.05rem;color:#c9c9c9;margin-bottom:2rem;max-width:480px;}
 .hero-btns{display:flex;gap:1rem;}
 .btn{font-family:var(--font-head);font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;padding:.9rem 1.8rem;border-radius:3px;display:inline-block;transition:background .15s,border-color .15s;}
@@ -83,7 +83,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .article-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:2rem;}
 .article-card{display:block;}
 .article-thumb{background:var(--gray-200);aspect-ratio:8/5;border-radius:4px;overflow:hidden;position:relative;margin-bottom:1rem;}
-.article-thumb .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:.8rem;font-family:var(--font-head);letter-spacing:.05em;}
+.article-thumb img{width:100%;height:100%;object-fit:cover;}
 .article-featured .article-thumb{aspect-ratio:16/9;}
 .article-cat{font-family:var(--font-head);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem;display:block;}
 .article-card h3{font-size:1.3rem;margin-bottom:.4rem;}
@@ -96,7 +96,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
 .product-card{background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:1.6rem;text-align:center;transition:box-shadow .15s,transform .15s;}
 .product-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-3px);}
-.product-thumb{background:var(--gray-100);aspect-ratio:1/1;border-radius:4px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:.78rem;font-family:var(--font-head);letter-spacing:.05em;}
+.product-thumb{background:var(--gray-100);aspect-ratio:1/1;border-radius:4px;margin-bottom:1rem;overflow:hidden;}
+.product-thumb img{width:100%;height:100%;object-fit:cover;}
 .product-brand{font-family:var(--font-head);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);margin-bottom:.3rem;}
 .product-card h4{font-size:1.05rem;color:var(--gray-900);margin-bottom:.4rem;}
 .stars{color:var(--orange);font-size:.85rem;margin-bottom:.4rem;}
@@ -132,6 +133,13 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 @media (max-width:900px){
   .article-grid,.product-grid,.news-grid{grid-template-columns:1fr;}
   .section-head{flex-direction:column;align-items:flex-start;gap:.8rem;}
+  .trust-bar .wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.8rem 1rem;
+    padding:1rem 24px;
+  }
+  .trust-item{font-size:.7rem;letter-spacing:.02em;}
 }
 </style>
 </head>
@@ -172,20 +180,20 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
     </div>
     <div class="article-grid">
       <a href="articles/solar-power-101.html" class="article-card article-featured">
-        <div class="article-thumb"><div class="ph">Image 1400×700</div></div>
+        <div class="article-thumb"><img src="https://picsum.photos/seed/gridescape-solar101/1400/700" alt="Solar panels and battery bank set up for an off-grid power system" loading="lazy"></div>
         <span class="article-cat">Solar</span>
         <h3>Solar Power 101: A Beginner's Guide to Going Off-Grid</h3>
         <p>Everything you need to understand before buying your first solar setup — panels, batteries, inverters, and sizing your system correctly.</p>
       </a>
       <div class="article-side-list">
         <a href="articles/van-life-electrical-basics.html" class="article-card">
-          <div class="article-thumb"><div class="ph">Image 800×500</div></div>
+          <div class="article-thumb"><img src="https://picsum.photos/seed/gridescape-vanlife/800/500" alt="Van interior electrical setup with wiring and battery components" loading="lazy"></div>
           <span class="article-cat">Van Life</span>
           <h3>Van Life Electrical Basics</h3>
           <p>The core components of a reliable van electrical system, explained simply.</p>
         </a>
         <a href="articles/camping-power-watt-hours-guide.html" class="article-card">
-          <div class="article-thumb"><div class="ph">Image 800×500</div></div>
+          <div class="article-thumb"><img src="https://picsum.photos/seed/gridescape-camping/800/500" alt="Campsite setup with portable power equipment" loading="lazy"></div>
           <span class="article-cat">Camping</span>
           <h3>How Many Watt-Hours Do You Actually Need?</h3>
           <p>A practical way to calculate power needs for any camping trip.</p>
@@ -203,7 +211,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
     </div>
     <div class="product-grid">
       <div class="product-card">
-        <div class="product-thumb">600×600</div>
+        <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-ecoflow-delta2/600/600" alt="EcoFlow Delta 2 Portable Power Station" loading="lazy"></div>
         <div class="product-brand">EcoFlow</div>
         <h4>Delta 2 Portable Power Station</h4>
         <div class="stars">★★★★★</div>
@@ -211,7 +219,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
         <a href="#" class="btn-check">Check Price →</a>
       </div>
       <div class="product-card">
-        <div class="product-thumb">600×600</div>
+        <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-jackery-explorer1000/600/600" alt="Jackery Explorer 1000 v2 Portable Power Station" loading="lazy"></div>
         <div class="product-brand">Jackery</div>
         <h4>Explorer 1000 v2</h4>
         <div class="stars">★★★★★</div>
@@ -219,7 +227,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
         <a href="#" class="btn-check">Check Price →</a>
       </div>
       <div class="product-card">
-        <div class="product-thumb">600×600</div>
+        <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-renogy-panel/600/600" alt="Renogy 200W Solar Panel Kit" loading="lazy"></div>
         <div class="product-brand">Renogy</div>
         <h4>200W Solar Panel Kit</h4>
         <div class="stars">★★★★☆</div>
@@ -227,7 +235,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
         <a href="#" class="btn-check">Check Price →</a>
       </div>
       <div class="product-card">
-        <div class="product-thumb">600×600</div>
+        <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-dometic-cfx3/600/600" alt="Dometic CFX3 45 Portable Fridge" loading="lazy"></div>
         <div class="product-brand">Dometic</div>
         <h4>CFX3 45 Portable Fridge</h4>
         <div class="stars">★★★★★</div>
