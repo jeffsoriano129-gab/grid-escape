@@ -7,8 +7,8 @@
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
 .logo{font-family:var(--font-head);font-size:1.3rem;font-weight:600;letter-spacing:.03em;color:var(--white);}
 .logo span{color:var(--orange);}
-.logo img{height:34px;display:block;}
-.footer-brand .logo img{height:30px;}
+.logo img{height:48px;display:block;}
+.footer-brand .logo img{height:42px;}
 .nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;}
 .nav-links a{font-family:var(--font-head);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#ccc;transition:color .15s;}
 .nav-links a:hover{color:var(--orange);}

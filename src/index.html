@@ -69,9 +69,12 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .btn-outline:hover{border-color:var(--orange);color:var(--orange);}
 
 /* Trust bar */
-.trust-bar{background:var(--orange);color:var(--white);}
-.trust-bar .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
-.trust-item{font-family:var(--font-head);font-size:.85rem;letter-spacing:.03em;text-transform:uppercase;flex:1;text-align:center;}
+.trust-bar{background:var(--orange);color:var(--white);overflow:hidden;padding:1.6rem 0;}
+.trust-track{display:flex;width:max-content;animation:trust-scroll 22s linear infinite;}
+.trust-item{font-family:var(--font-head);font-size:1.05rem;font-weight:500;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;padding:0 2.5rem;border-right:1px solid rgba(255,255,255,.35);}
+.trust-bar:hover .trust-track{animation-play-state:paused;}
+@keyframes trust-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion:reduce){.trust-track{animation:none;}}
 
 /* Section heading */
 .section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;}
@@ -132,13 +135,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 @media (max-width:900px){
   .article-grid,.product-grid,.news-grid{grid-template-columns:1fr;}
   .section-head{flex-direction:column;align-items:flex-start;gap:.8rem;}
-  .trust-bar .wrap{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:.8rem 1rem;
-    padding:1rem 24px;
-  }
-  .trust-item{font-size:.7rem;letter-spacing:.02em;}
+  .trust-item{font-size:.85rem;padding:0 1.5rem;}
 }
 </style>
 </head>
@@ -163,11 +160,15 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 </section>
 
 <div class="trust-bar">
-  <div class="wrap">
+  <div class="trust-track">
     <div class="trust-item">Independent Reviews</div>
     <div class="trust-item">No Sponsored Rankings</div>
     <div class="trust-item">Real-World Testing Notes</div>
     <div class="trust-item">Updated Regularly</div>
+    <div class="trust-item" aria-hidden="true">Independent Reviews</div>
+    <div class="trust-item" aria-hidden="true">No Sponsored Rankings</div>
+    <div class="trust-item" aria-hidden="true">Real-World Testing Notes</div>
+    <div class="trust-item" aria-hidden="true">Updated Regularly</div>
   </div>
 </div>
 
