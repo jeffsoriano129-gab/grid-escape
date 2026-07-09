@@ -38,21 +38,15 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .article-hero{
   background-color:var(--gray-900);
   background-image:
-    linear-gradient(rgba(232,118,10,0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232,118,10,0.14) 1px, transparent 1px);
-  background-size:48px 48px;
+    linear-gradient(90deg, rgba(20,20,20,.94) 0%, rgba(20,20,20,.8) 30%, rgba(20,20,20,.45) 60%, rgba(20,20,20,.15) 100%),
+    url('https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/hero%201.png');
+  background-size:cover;
   background-position:center;
+  background-repeat:no-repeat;
   color:var(--white);
-  padding:60px 0 50px;
+  padding:70px 0 60px;
   position:relative;
   overflow:hidden;
-}
-.article-hero::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 20% 35%, rgba(26,26,26,0) 0%, var(--gray-900) 78%);
-  pointer-events:none;
 }
 .article-hero .wrap{position:relative;z-index:1;}
 .breadcrumb{font-size:.82rem;color:#999;margin-bottom:1.2rem;}
