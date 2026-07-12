@@ -12,8 +12,8 @@
   gtag('config', 'G-VME63FKT8Z');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bringing Grandma and Grandpa Along: E-Trikes for Camping & Glamping | Grid Escape</title>
-<meta name="description" content="How a stable, easy-to-ride e-trike can help older relatives get around a campground or glamping resort comfortably — what to look for and models worth a look.">
+<title>@@PAGE_TITLE@@ | Grid Escape</title>
+<meta name="description" content="@@META_DESC@@">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="chrome.css">
@@ -107,8 +107,7 @@ img{max-width:100%;display:block;}
 .newsletter-btn{width:100%;background:var(--orange);color:var(--white);font-family:var(--font-head);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.65rem;border:none;border-radius:2px;cursor:pointer;transition:background .18s;}
 .newsletter-btn:hover{background:var(--orange-dk);}
 .related-mini{display:flex;gap:.8rem;margin-bottom:1rem;align-items:flex-start;}
-.related-mini-img{width:64px;height:56px;flex-shrink:0;border-radius:2px;font-size:.6rem;overflow:hidden;}
-.related-mini-img img{width:100%;height:100%;object-fit:cover;}
+.related-mini-img{width:64px;height:56px;flex-shrink:0;border-radius:2px;font-size:.6rem;}
 .related-mini-title{font-size:.85rem;font-weight:600;color:var(--gray-900);line-height:1.35;}
 .related-mini-meta{font-size:.72rem;color:var(--gray-400);margin-top:.2rem;}
 
@@ -119,8 +118,7 @@ img{max-width:100%;display:block;}
 @media (max-width:900px){.related-grid{grid-template-columns:1fr;}}
 .article-card{background:var(--white);border-radius:4px;overflow:hidden;transition:transform .18s;box-shadow:0 1px 3px rgba(0,0,0,.06);}
 .article-card:hover{transform:translateY(-3px);}
-.ac-img{min-height:170px;overflow:hidden;}
-.ac-img img{width:100%;height:170px;object-fit:cover;}
+.ac-img{min-height:170px;}
 .ac-body{padding:1.2rem 1.3rem 1.4rem;}
 .ac-tag{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);}
 .ac-title{font-family:var(--font-head);font-size:1.05rem;font-weight:600;color:var(--gray-900);margin:.5rem 0 .6rem;line-height:1.35;}
@@ -145,27 +143,6 @@ img{max-width:100%;display:block;}
 }
 .share-toast.show{opacity:1;}
 
-/* Product picks (affiliate cards, unique to this article) */
-.pick-list{display:flex;flex-direction:column;gap:1.4rem;margin:1.8rem 0 2.2rem;}
-.pick-card{display:grid;grid-template-columns:150px 1fr auto;gap:1.4rem;align-items:center;background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:1.2rem;}
-.pick-thumb{background:var(--gray-100);aspect-ratio:1/1;border-radius:4px;overflow:hidden;padding:.6rem;}
-.pick-thumb img{width:100%;height:100%;object-fit:contain;}
-.pick-brand{font-family:var(--font-head);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);margin-bottom:.25rem;}
-.pick-card h4{font-family:var(--font-head);font-weight:600;color:var(--gray-900);font-size:1.05rem;margin-bottom:.35rem;}
-.pick-card p{font-size:.88rem;color:var(--gray-500);margin-bottom:0;}
-.btn-check{font-family:var(--font-head);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;background:var(--gray-900);color:var(--white);padding:.7rem 1.2rem;border-radius:3px;white-space:nowrap;transition:background .15s;}
-.btn-check:hover{background:var(--orange);}
-
-/* Ad banner (unique to this article) */
-.ad-banner{margin:1.8rem 0;text-align:center;}
-.ad-banner img{display:inline-block;max-width:100%;height:auto;margin:0 auto;}
-
-@media (max-width:900px){
-  .pick-card{grid-template-columns:90px 1fr;grid-template-areas:"thumb title" "thumb cta";}
-  .pick-thumb{grid-area:thumb;}
-  .pick-card h4,.pick-card p{grid-area:title;}
-  .btn-check{grid-area:cta;justify-self:start;}
-}
 </style>
 </head>
 <body>
@@ -176,116 +153,43 @@ img{max-width:100%;display:block;}
 
 <header class="article-hero">
   <div class="wrap">
-    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="articles.html">Articles</a> / <a href="articles.html#camping">Camping</a></div>
-    <span class="cat-tag">Camping</span>
-    <h1>Bringing Grandma and Grandpa Along: E-Trikes for Camping &amp; Glamping</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="articles.html">Articles</a> / <a href="@@CATEGORY_URL@@">@@CATEGORY@@</a></div>
+    <span class="cat-tag">@@CATEGORY@@</span>
+    <h1>@@H1@@</h1>
     <div class="article-meta">
-      <span>July 10, 2026</span>
+      <span>@@DATE@@</span>
       <span>·</span>
-      <span>7 min read</span>
+      <span>@@READ_TIME@@</span>
     </div>
   </div>
 </header>
 
 <div class="hero-img-wrap">
-  <img src="https://picsum.photos/seed/gridescape-etrike-campground/1600/900" alt="Older couple riding an electric trike along a campground road" loading="lazy">
+  <div class="ph hero-img">@@HERO_IMAGE_DESCRIPTION@@<br>1600 × 900px</div>
 </div>
 
 <div class="wrap">
 <div class="article-layout">
 <div class="article-body">
 
-<p class="intro-quote">Most camping and van life planning revolves around power, water, and where to park for the night. One thing that's easy to overlook: how far everything actually is once you get there.</p>
+<p class="intro-quote">@@INTRO_QUOTE@@</p>
 
-<h2 id="the-problem">The Part of the Trip Nobody Plans For</h2>
-<p>A "quick walk" to the bathhouse, the lake, or the lodge can be 10-15 minutes each way on gravel or packed dirt — manageable for most of us, a lot less fun for a grandparent with knees that don't love uneven ground.</p>
-<p>If you've ever tried to bring an older relative along on a camping trip or a glamping weekend, you've probably run into this: they want to come, they want to be part of it, but the amount of walking involved quietly becomes the reason they sit it out. An e-trike is one of the simpler fixes for that specific problem.</p>
+<!-- ============================================
+  ARTICLE BODY — replace this comment block with
+  the article's h2/h3/p/ul/callout/inline-img markup.
+  Keep the same id="" pattern on h2 tags used in the
+  TOC below so the jump links work (e.g. id="section-slug").
+============================================= -->
+@@ARTICLE_BODY@@
 
-<h2 id="why-a-trike">Why a Trike, Not a Bike or Scooter</h2>
-<p>Two wheels ask for balance. A mobility scooter asks for a curb-free, paved world that most campgrounds don't have. A three-wheeled e-trike sits in between: it doesn't require balancing to stay upright, and the wider stance and bigger tires handle gravel, grass, and dirt paths a lot better than a scooter's small wheels.</p>
-<ul>
-<li><strong>No balance required</strong> — the trike stays upright on its own, even stopped.</li>
-<li><strong>Step-through frame</strong> — easy to get on and off without swinging a leg over a high bar.</li>
-<li><strong>Throttle option</strong> — no pedaling required if knees or stamina are a concern, though most models support pedal-assist too.</li>
-<li><strong>Storage basket</strong> — enough room for a water bottle, a camp chair cushion, or the day's book.</li>
-</ul>
-
-<div class="callout">
-  <div class="callout-title">Worth Saying Plainly</div>
-  <p>An e-trike is a comfort and mobility convenience, not a medical mobility aid. If a family member has a diagnosed mobility condition, balance issue, or is currently using a cane, walker, or wheelchair, check with their doctor or physical therapist before assuming a trike is the right fit for them.</p>
+<div class="article-tags">@@TAG_PILLS@@</div>
 </div>
 
-<h2 id="what-to-look-for">What to Look For Before Buying</h2>
-<h3>Step-through height</h3>
-<p>The lower the step-through frame, the easier it is for someone with limited hip or knee flexibility to get on and off. This matters more than almost any spec sheet number.</p>
-<h3>Throttle vs. pedal-assist</h3>
-<p>A throttle-only mode means less physical effort, good for longer distances or hot afternoons. Pedal-assist is nice to have for relatives who want some light exercise but appreciate a boost on inclines.</p>
-<h3>Range for a weekend</h3>
-<p>You don't need a 60-mile range for campground use — most sites are small enough that 15-20 miles of range covers a full day of back-and-forth trips. But check whether the campground has outlets near your site to top off the battery overnight.</p>
-<h3>Folding and storage</h3>
-<p>If you're towing it on a van, truck bed, or hitch rack, a folding frame or quick-release wheels make a real difference versus wrestling a full-size trike in and out.</p>
-
-<div class="ad-banner">
-  <!-- START ADVERTISER: mooncool from awin.com -->
-  <a rel="sponsored" href="https://www.awin1.com/cread.php?s=4824343&v=66494&q=573723&r=2977301">
-      <img src="https://www.awin1.com/cshow.php?s=4824343&v=66494&q=573723&r=2977301" border="0" alt="MoonCool electric trikes">
-  </a>
-  <!-- END ADVERTISER: mooncool from awin.com -->
-</div>
-
-<h2 id="picks">A Few Worth Considering</h2>
-<p>MoonCool makes step-through electric trikes designed with exactly this kind of rider in mind — comfortable seating, a low mount point, and a stable ride on uneven surfaces. Here are a couple of their models that fit the campground use case well, including the <a href="https://www.awin1.com/cread.php?awinmid=66494&awinaffid=2977301&ued=https%3A%2F%2Fwww.mooncool.com%2Fproducts%2Ftk-pro-electric-trike" target="_blank" rel="nofollow sponsored noopener">TK Pro Electric Trike</a>.</p>
-
-<div class="pick-list">
-  <div class="pick-card">
-    <div class="pick-thumb"><img src="https://www.mooncool.com/cdn/shop/files/0125_.23_c4421a1b-23a8-4fb1-9c04-e926ed057d29.png?v=1783335936&width=800" alt="MoonCool TK Pro Electric Trike" loading="lazy"></div>
-    <div>
-      <div class="pick-brand">MoonCool</div>
-      <h4>TK Pro Electric Trike</h4>
-      <p>Low step-through frame, throttle and pedal-assist modes, front storage basket — a solid all-rounder for getting around a campground or resort at an easy pace.</p>
-    </div>
-    <a href="https://www.awin1.com/cread.php?awinmid=66494&awinaffid=2977301&ued=https%3A%2F%2Fwww.mooncool.com%2Fproducts%2Ftk-pro-electric-trike" target="_blank" rel="nofollow sponsored noopener" class="btn-check">Check Price →</a>
-  </div>
-  <div class="pick-card">
-    <div class="pick-thumb"><img src="https://picsum.photos/seed/gridescape-mooncool-fold/400/400" alt="MoonCool folding electric trike" loading="lazy"></div>
-    <div>
-      <div class="pick-brand">MoonCool</div>
-      <h4>Folding Commuter E-Trike</h4>
-      <p>Folds down for easier towing and storage — a better fit if you're tight on space in a van, truck bed, or trailer.</p>
-    </div>
-    <a href="#" target="_blank" rel="nofollow sponsored noopener" class="btn-check">Check Price →</a>
-  </div>
-</div>
-
-<div class="callout">
-  <div class="callout-title">Heads Up</div>
-  <p>These are affiliate links. If you buy through them, we may earn a small commission at no extra cost to you — it doesn't change the price you pay, and it's the same recommendation we'd make either way. Full details in our <a href="affiliate-disclosure.html">affiliate disclosure</a>.</p>
-</div>
-
-<h2 id="tips">Making It Work at the Campsite</h2>
-<ul>
-<li><strong>Check the campground's rules first.</strong> Some resorts restrict e-bikes/e-trikes to paved paths only, or require a speed cap — worth a quick call before you pack it.</li>
-<li><strong>Charge it the night before you leave</strong> if you're relying on your own power setup, so it's topped off before you're off-grid.</li>
-<li><strong>Scout the route once</strong> without your relative before their first ride, so you know which paths are actually trike-friendly.</li>
-<li><strong>Bring it to the golf-cart-only resorts too</strong> — most glamping resorts that restrict cars still allow e-trikes on their internal paths.</li>
-</ul>
-
-<h2 id="bottom-line">The Bottom Line</h2>
-<p>The goal isn't turning your camping trip into an e-bike showcase — it's removing the one obstacle that quietly keeps older relatives from wanting to come along. A stable, low-step, easy-throttle trike solves the "it's too far to walk" problem without asking anyone to relearn balance or navigate a scooter through gravel. If that's the thing standing between grandma and grandpa and a weekend at the lake with everyone else, it's a small investment for a trip they can actually be part of.</p>
-<div class="article-tags"><span class="article-tag-pill">Camping</span>
-<span class="article-tag-pill">Glamping</span>
-<span class="article-tag-pill">Accessibility</span></div>
-</div>
 <aside>
   <div class="sidebar-widget toc">
     <div class="sidebar-widget-title">In This Article</div>
     <ul>
-    <li><a href="#the-problem">The Part Nobody Plans For</a></li>
-<li><a href="#why-a-trike">Why a Trike, Not a Bike</a></li>
-<li><a href="#what-to-look-for">What to Look For</a></li>
-<li><a href="#picks">A Few Worth Considering</a></li>
-<li><a href="#tips">Making It Work at the Campsite</a></li>
-<li><a href="#bottom-line">The Bottom Line</a></li>
+    @@TOC_ITEMS@@
     </ul>
   </div>
 
@@ -294,25 +198,25 @@ img{max-width:100%;display:block;}
     <div class="share-widget-body">
       <div class="share-toast" id="shareToast">Link copied!</div>
       <div class="share-grid">
-        <button type="button" class="share-btn" aria-label="Share on Facebook" onclick="shareTo('facebook')">
+        <button class="share-btn" aria-label="Share on Facebook" onclick="shareTo('facebook')">
           <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
         </button>
-        <button type="button" class="share-btn" aria-label="Share on X" onclick="shareTo('x')">
+        <button class="share-btn" aria-label="Share on X" onclick="shareTo('x')">
           <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.7L4.4 22H1.3l8.1-9.3L1 2h7.1l4.9 6.2L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg>
         </button>
-        <button type="button" class="share-btn" aria-label="Share on Instagram" onclick="shareTo('instagram')">
+        <button class="share-btn" aria-label="Share on Instagram" onclick="shareTo('instagram')">
           <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53c.64-.25 1.37-.42 2.43-.47C8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2A3.2 3.2 0 1 1 12 6.8a3.2 3.2 0 0 1 0 6.4ZM17.4 4.4a1.17 1.17 0 1 0 0 2.34 1.17 1.17 0 0 0 0-2.34Z"/></svg>
         </button>
-        <button type="button" class="share-btn" aria-label="Share on Pinterest" onclick="shareTo('pinterest')">
+        <button class="share-btn" aria-label="Share on Pinterest" onclick="shareTo('pinterest')">
           <svg viewBox="0 0 24 24"><path d="M12.02 2C6.5 2 3 5.87 3 10.24c0 2.6 1.4 4.63 3.4 5.44.32.13.5.06.58-.22l.24-.94c.08-.3.06-.42-.12-.68-.5-.68-.8-1.55-.8-2.78 0-3.6 2.7-6.83 7.03-6.83 3.83 0 5.94 2.34 5.94 5.47 0 4.12-1.83 7.6-4.54 7.6-1.5 0-2.62-1.24-2.26-2.75.43-1.82 1.27-3.79 1.27-5.1 0-1.18-.63-2.16-1.94-2.16-1.54 0-2.78 1.6-2.78 3.73 0 1.36.46 2.28.46 2.28s-1.53 6.46-1.8 7.6c-.53 2.24-.08 4.98-.04 5.26.02.17.24.21.34.08.14-.18 1.9-2.36 2.5-4.53.17-.62.98-3.83.98-3.83.48.92 1.9 1.73 3.4 1.73 4.48 0 7.72-4.12 7.72-9.23C21.98 5.67 18.02 2 12.02 2Z"/></svg>
         </button>
-        <button type="button" class="share-btn" aria-label="Share on TikTok" onclick="shareTo('tiktok')">
+        <button class="share-btn" aria-label="Share on TikTok" onclick="shareTo('tiktok')">
           <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.3v13.4a2.9 2.9 0 1 1-2.1-2.79V9.2a6.1 6.1 0 1 0 5.4 6.06V8.3a7.6 7.6 0 0 0 4.4 1.4V6.4a4.3 4.3 0 0 1-4.4-4.4Z"/></svg>
         </button>
-        <button type="button" class="share-btn" aria-label="Share on WhatsApp" onclick="shareTo('whatsapp')">
+        <button class="share-btn" aria-label="Share on WhatsApp" onclick="shareTo('whatsapp')">
           <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.62-1.52-1.89-.16-.27-.02-.42.12-.55.13-.13.27-.32.4-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.83-2.02-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.28 0 1.34.98 2.64 1.12 2.82.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.25.18 1.73.11.53-.08 1.6-.65 1.83-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.32ZM12.04 2C6.5 2 2 6.48 2 12c0 1.85.5 3.63 1.45 5.19L2 22l4.94-1.3A9.94 9.94 0 0 0 12.04 22C17.6 22 22.1 17.52 22.1 12S17.6 2 12.04 2Zm0 18.13c-1.7 0-3.35-.46-4.8-1.32l-.34-.2-3.3.87.88-3.24-.22-.34A8.1 8.1 0 0 1 3.9 12c0-4.51 3.65-8.17 8.14-8.17S20.18 7.5 20.18 12s-3.65 8.13-8.14 8.13Z"/></svg>
         </button>
-        <button type="button" class="share-btn" aria-label="Share by Email" onclick="shareTo('email')">
+        <button class="share-btn" aria-label="Share by Email" onclick="shareTo('email')">
           <svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.3 6.1a.8.8 0 0 0 1 0L19.8 6H4.2ZM4 8.1v10.4h16V8.1l-7.4 6.2a2.3 2.3 0 0 1-2.9 0L4 8.1Z"/></svg>
         </button>
       </div>
@@ -323,25 +227,18 @@ img{max-width:100%;display:block;}
     <div class="sidebar-widget-title">Off-Grid Weekly</div>
     <p>Get one practical off-grid tip in your inbox every Friday. No spam, unsubscribe anytime.</p>
     <input class="newsletter-input" type="email" placeholder="Your email address">
-    <button type="button" class="newsletter-btn">Subscribe</button>
+    <button class="newsletter-btn">Subscribe</button>
   </div>
+
+  <!-- Optional: sponsored banner widget slot (e.g. Bluetti/EcoFlow). Delete if unused. -->
+  <!-- <div class="sidebar-widget">
+    <div class="sidebar-widget-title">Sponsored</div>
+    ...banner markup...
+  </div> -->
 
   <div class="sidebar-widget">
     <div class="sidebar-widget-title">Related Reads</div>
-    <div class="related-mini">
-          <div class="related-mini-img"><img src="https://picsum.photos/seed/gridescape-camping/128/112" alt="Campsite setup with portable power equipment"></div>
-          <div>
-            <div class="related-mini-title"><a href="camping-power-watt-hours-guide.html">How Much Power Do You Need for Camping?</a></div>
-            <div class="related-mini-meta">Camping · 6 min read</div>
-          </div>
-        </div>
-<div class="related-mini">
-          <div class="related-mini-img"><img src="https://picsum.photos/seed/gridescape-vanlife/128/112" alt="Van interior electrical setup"></div>
-          <div>
-            <div class="related-mini-title"><a href="van-life-electrical-basics.html">Van Life Electrical Systems Explained</a></div>
-            <div class="related-mini-meta">Van Life · 8 min read</div>
-          </div>
-        </div>
+    @@RELATED_SIDEBAR_ITEMS@@
   </div>
 </aside>
 </div>
@@ -351,33 +248,7 @@ img{max-width:100%;display:block;}
   <div class="wrap">
     <div class="section-title">Keep Reading</div>
     <div class="related-grid">
-
-    <a href="camping-power-watt-hours-guide.html" class="article-card">
-      <div class="ac-img"><img src="https://picsum.photos/seed/gridescape-camping/400/170" alt="Campsite setup with portable power equipment" loading="lazy"></div>
-      <div class="ac-body">
-        <span class="ac-tag">Camping</span>
-        <div class="ac-title">How Much Power Do You Actually Need for Camping?</div>
-        <div class="ac-meta">July 4, 2026 · 6 min read</div>
-      </div>
-    </a>
-
-    <a href="van-life-electrical-basics.html" class="article-card">
-      <div class="ac-img"><img src="https://picsum.photos/seed/gridescape-vanlife/400/170" alt="Van interior electrical setup" loading="lazy"></div>
-      <div class="ac-body">
-        <span class="ac-tag">Van Life</span>
-        <div class="ac-title">Van Life Electrical Systems Explained: The Basics Before You Build</div>
-        <div class="ac-meta">July 3, 2026 · 8 min read</div>
-      </div>
-    </a>
-
-    <a href="solar-power-101-off-grid-basics.html" class="article-card">
-      <div class="ac-img"><div class="ph" style="min-height:170px;">Article Image</div></div>
-      <div class="ac-body">
-        <span class="ac-tag">Solar</span>
-        <div class="ac-title">Solar Power 101: How Off-Grid Solar Systems Actually Work</div>
-        <div class="ac-meta">July 2, 2026 · 7 min read</div>
-      </div>
-    </a>
+    @@RELATED_CARDS@@
     </div>
   </div>
 </section>

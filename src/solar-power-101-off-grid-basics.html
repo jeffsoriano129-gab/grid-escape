@@ -122,6 +122,25 @@ img{max-width:100%;display:block;}
 .ac-title{font-family:var(--font-head);font-size:1.05rem;font-weight:600;color:var(--gray-900);margin:.5rem 0 .6rem;line-height:1.35;}
 .ac-meta{font-size:.78rem;color:var(--gray-400);}
 
+/* Share widget */
+.share-widget-body{position:relative;}
+.share-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;}
+.share-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;aspect-ratio:1;border-radius:100%;
+  background:var(--white);border:1px solid var(--gray-200);
+  color:var(--gray-700);cursor:pointer;transition:all .18s;
+}
+.share-btn:hover{background:var(--orange);border-color:var(--orange);color:var(--white);}
+.share-btn svg{width:18px;height:18px;fill:currentColor;}
+.share-toast{
+  position:absolute;left:0;right:0;bottom:calc(100% + 10px);
+  background:var(--gray-900);color:var(--white);font-size:.78rem;
+  padding:.55rem .8rem;border-radius:3px;text-align:center;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.share-toast.show{opacity:1;}
+
 </style>
 </head>
 <body>
@@ -210,11 +229,41 @@ img{max-width:100%;display:block;}
     </ul>
   </div>
 
+  <div class="sidebar-widget share-widget">
+    <div class="sidebar-widget-title">Share This</div>
+    <div class="share-widget-body">
+      <div class="share-toast" id="shareToast">Link copied!</div>
+      <div class="share-grid">
+        <button type="button" class="share-btn" aria-label="Share on Facebook" onclick="shareTo('facebook')">
+          <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+        </button>
+        <button type="button" class="share-btn" aria-label="Share on X" onclick="shareTo('x')">
+          <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.7L4.4 22H1.3l8.1-9.3L1 2h7.1l4.9 6.2L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg>
+        </button>
+        <button type="button" class="share-btn" aria-label="Share on Instagram" onclick="shareTo('instagram')">
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53c.64-.25 1.37-.42 2.43-.47C8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2A3.2 3.2 0 1 1 12 6.8a3.2 3.2 0 0 1 0 6.4ZM17.4 4.4a1.17 1.17 0 1 0 0 2.34 1.17 1.17 0 0 0 0-2.34Z"/></svg>
+        </button>
+        <button type="button" class="share-btn" aria-label="Share on Pinterest" onclick="shareTo('pinterest')">
+          <svg viewBox="0 0 24 24"><path d="M12.02 2C6.5 2 3 5.87 3 10.24c0 2.6 1.4 4.63 3.4 5.44.32.13.5.06.58-.22l.24-.94c.08-.3.06-.42-.12-.68-.5-.68-.8-1.55-.8-2.78 0-3.6 2.7-6.83 7.03-6.83 3.83 0 5.94 2.34 5.94 5.47 0 4.12-1.83 7.6-4.54 7.6-1.5 0-2.62-1.24-2.26-2.75.43-1.82 1.27-3.79 1.27-5.1 0-1.18-.63-2.16-1.94-2.16-1.54 0-2.78 1.6-2.78 3.73 0 1.36.46 2.28.46 2.28s-1.53 6.46-1.8 7.6c-.53 2.24-.08 4.98-.04 5.26.02.17.24.21.34.08.14-.18 1.9-2.36 2.5-4.53.17-.62.98-3.83.98-3.83.48.92 1.9 1.73 3.4 1.73 4.48 0 7.72-4.12 7.72-9.23C21.98 5.67 18.02 2 12.02 2Z"/></svg>
+        </button>
+        <button type="button" class="share-btn" aria-label="Share on TikTok" onclick="shareTo('tiktok')">
+          <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.3v13.4a2.9 2.9 0 1 1-2.1-2.79V9.2a6.1 6.1 0 1 0 5.4 6.06V8.3a7.6 7.6 0 0 0 4.4 1.4V6.4a4.3 4.3 0 0 1-4.4-4.4Z"/></svg>
+        </button>
+        <button type="button" class="share-btn" aria-label="Share on WhatsApp" onclick="shareTo('whatsapp')">
+          <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.62-1.52-1.89-.16-.27-.02-.42.12-.55.13-.13.27-.32.4-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.83-2.02-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.28 0 1.34.98 2.64 1.12 2.82.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.25.18 1.73.11.53-.08 1.6-.65 1.83-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.32ZM12.04 2C6.5 2 2 6.48 2 12c0 1.85.5 3.63 1.45 5.19L2 22l4.94-1.3A9.94 9.94 0 0 0 12.04 22C17.6 22 22.1 17.52 22.1 12S17.6 2 12.04 2Zm0 18.13c-1.7 0-3.35-.46-4.8-1.32l-.34-.2-3.3.87.88-3.24-.22-.34A8.1 8.1 0 0 1 3.9 12c0-4.51 3.65-8.17 8.14-8.17S20.18 7.5 20.18 12s-3.65 8.13-8.14 8.13Z"/></svg>
+        </button>
+        <button type="button" class="share-btn" aria-label="Share by Email" onclick="shareTo('email')">
+          <svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.3 6.1a.8.8 0 0 0 1 0L19.8 6H4.2ZM4 8.1v10.4h16V8.1l-7.4 6.2a2.3 2.3 0 0 1-2.9 0L4 8.1Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="newsletter-widget">
     <div class="sidebar-widget-title">Off-Grid Weekly</div>
     <p>Get one practical off-grid tip in your inbox every Friday. No spam, unsubscribe anytime.</p>
     <input class="newsletter-input" type="email" placeholder="Your email address">
-    <button class="newsletter-btn">Subscribe</button>
+    <button type="button" class="newsletter-btn">Subscribe</button>
   </div>
 
   <div class="sidebar-widget">
@@ -274,6 +323,36 @@ img{max-width:100%;display:block;}
 </section>
 
 <!--@@FOOTER@@-->
+
+<script>
+function shareTo(network){
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title.replace(' | Grid Escape',''));
+  const links = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+    x: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+    pinterest: `https://pinterest.com/pin/create/button/?url=${url}&description=${title}`,
+    whatsapp: `https://wa.me/?text=${title}%20${url}`,
+    email: `mailto:?subject=${title}&body=${url}`
+  };
+  if (links[network]) {
+    window.open(links[network], '_blank', 'noopener,noreferrer,width=600,height=500');
+    return;
+  }
+  // Instagram and TikTok don't support direct link-share intents on the web,
+  // so we copy the link instead and prompt the user to paste it.
+  if (network === 'instagram' || network === 'tiktok') {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const toast = document.getElementById('shareToast');
+      toast.textContent = network === 'instagram'
+        ? 'Link copied! Paste it in your Instagram bio or story.'
+        : 'Link copied! Paste it in your TikTok bio or video.';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    });
+  }
+}
+</script>
 
 </body>
 </html>
