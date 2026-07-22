@@ -11,14 +11,21 @@
 // filler cards are all generated automatically from this file — you
 // never need to hand-edit the markup in src/articles.html again.
 //
+// This file also drives the homepage's "Latest Articles" section — the
+// 3 most recent articles (by `date`, across every category) are rendered
+// automatically, so a new post shows up on the homepage with no edits
+// to src/index.html.
+//
 // Field reference for each article entry:
 //   file      - filename in src/ (e.g. "my-article.html")
 //   title     - card headline (shown as ac-title)
 //   tag       - small label shown on the card (usually matches category)
 //   image     - picsum.photos seed OR a full image URL
 //   alt       - alt text for the image
-//   date      - display date (e.g. "July 23, 2026")
+//   date      - display date (e.g. "July 23, 2026") — also used to sort
+//               homepage "Latest Articles", so keep it a real, parseable date
 //   readTime  - display read time (e.g. "7 min read")
+//   excerpt   - one-sentence teaser used on the homepage article cards
 //
 // Category-level fields:
 //   id          - anchor id, used for #jump links (must be unique)
@@ -43,7 +50,8 @@ module.exports = [
         image: 'gridescape-first-time-hikers',
         alt: 'Hiker on a forest trail wearing a daypack and hiking boots',
         date: 'July 23, 2026',
-        readTime: '7 min read'
+        readTime: '7 min read',
+        excerpt: 'A practical guide for first-time hikers — trail choice, day-pack essentials, and safety basics before you set out.'
       },
       {
         file: 'e-trikes-camping-glamping.html',
@@ -52,7 +60,8 @@ module.exports = [
         image: 'gridescape-etrike-campground',
         alt: 'Older couple riding an electric trike along a campground road',
         date: 'July 10, 2026',
-        readTime: '7 min read'
+        readTime: '7 min read',
+        excerpt: 'How a stable, easy-to-ride e-trike can help older relatives get around a campground or glamping resort comfortably.'
       },
       {
         file: 'camping-power-watt-hours-guide.html',
@@ -61,7 +70,8 @@ module.exports = [
         image: 'gridescape-camping',
         alt: 'Campsite setup with portable power equipment',
         date: 'July 4, 2026',
-        readTime: '6 min read'
+        readTime: '6 min read',
+        excerpt: 'A practical way to calculate power needs for any camping trip.'
       }
     ],
     comingSoon: []
@@ -77,7 +87,8 @@ module.exports = [
         image: 'gridescape-vanlife',
         alt: 'Van interior electrical setup with wiring and battery components',
         date: 'July 3, 2026',
-        readTime: '8 min read'
+        readTime: '8 min read',
+        excerpt: 'The core components of a reliable van electrical system, explained simply.'
       }
     ],
     comingSoon: [
@@ -97,7 +108,8 @@ module.exports = [
         image: 'gridescape-solar101',
         alt: 'Solar panels and battery bank set up for an off-grid power system',
         date: 'July 2, 2026',
-        readTime: '7 min read'
+        readTime: '7 min read',
+        excerpt: 'A plain-language guide to how off-grid solar panels, charge controllers, batteries, and inverters work together.'
       }
     ],
     comingSoon: [
@@ -116,7 +128,8 @@ module.exports = [
         image: 'gridescape-portable-power-campsite',
         alt: 'Portable power station set up on a table at a campsite',
         date: 'July 22, 2026',
-        readTime: '8 min read'
+        readTime: '8 min read',
+        excerpt: 'Compare portable power stations built for camping trips, including Bluetti and EcoFlow models.'
       }
     ],
     comingSoon: [

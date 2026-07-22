@@ -69,6 +69,40 @@ function renderArticleSections() {
   return categories.map(renderCategorySection).join('\n\n');
 }
 
+// ---------- Homepage "Latest Articles" generation ----------
+// Flattens every article across every category, sorts newest-first by
+// `date`, and renders the top 3 (one featured + two side-list) so the
+// homepage always reflects the newest posts without manual edits.
+
+function getAllArticlesSorted() {
+  return categories
+    .flatMap((cat) => cat.articles)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+
+function renderLatestArticles(count = 3) {
+  const latest = getAllArticlesSorted().slice(0, count);
+  const [featured, ...rest] = latest;
+
+  const featuredHtml = `      <a href="${featured.file}" class="article-card article-featured">
+        <div class="article-thumb"><img src="https://picsum.photos/seed/${featured.image}/1400/700" alt="${featured.alt}" loading="lazy"></div>
+        <span class="article-cat">${featured.tag}</span>
+        <h3>${featured.title}</h3>
+        <p>${featured.excerpt || ''}</p>
+      </a>`;
+
+  const sideHtml = rest
+    .map((a) => `        <a href="${a.file}" class="article-card">
+          <div class="article-thumb"><img src="https://picsum.photos/seed/${a.image}/800/500" alt="${a.alt}" loading="lazy"></div>
+          <span class="article-cat">${a.tag}</span>
+          <h3>${a.title}</h3>
+          <p>${a.excerpt || ''}</p>
+        </a>`)
+    .join('\n');
+
+  return `${featuredHtml}\n      <div class="article-side-list">\n${sideHtml}\n      </div>`;
+}
+
 // ---------- Main build ----------
 
 fs.rmSync(distDir, { recursive: true, force: true });
@@ -89,6 +123,9 @@ for (const file of fs.readdirSync(srcDir)) {
   }
   if (html.includes('<!--@@ARTICLE_SECTIONS@@-->')) {
     html = html.replace('<!--@@ARTICLE_SECTIONS@@-->', renderArticleSections());
+  }
+  if (html.includes('<!--@@LATEST_ARTICLES@@-->')) {
+    html = html.replace('<!--@@LATEST_ARTICLES@@-->', renderLatestArticles());
   }
 
   fs.writeFileSync(path.join(distDir, file), html);
