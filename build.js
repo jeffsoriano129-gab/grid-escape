@@ -10,6 +10,17 @@ const footer = fs.readFileSync(path.join(partialsDir, 'footer.html'), 'utf8').tr
 const sidebarPromo = fs.readFileSync(path.join(partialsDir, 'sidebar-promo.html'), 'utf8').trimEnd();
 const categories = require(path.join(partialsDir, 'articles-data.js'));
 
+const SITE_URL = 'https://grid-escape.com';
+const LOGO_URL = 'https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/Grid-escape%20logo.png';
+
+// file -> article-data entry, used to enrich SEO tags/sitemap for article pages
+const articleMeta = {};
+for (const cat of categories) {
+  for (const article of cat.articles) {
+    articleMeta[article.file] = article;
+  }
+}
+
 // ---------- Articles page generation ----------
 // Builds the #jump-nav pills and the per-category sections (article cards +
 // coming-soon fillers) straight from partials/articles-data.js, so the
@@ -103,6 +114,102 @@ function renderLatestArticles(count = 3) {
   return `${featuredHtml}\n      <div class="article-side-list">\n${sideHtml}\n      </div>`;
 }
 
+// ---------- SEO tag generation ----------
+// Auto-injects a canonical link, Open Graph / Twitter Card tags, and
+// JSON-LD structured data into every page's <head> based on that page's
+// own <title>/<meta description>/hero image — no per-page SEO markup to
+// maintain. Article pages (anything listed in articles-data.js) get
+// Article structured data; the homepage gets WebSite structured data.
+
+function escapeHtmlAttr(str) {
+  return str.replace(/&(?!amp;|#39;|quot;|lt;|gt;)/g, '&amp;');
+}
+
+function decodeEntities(str) {
+  return str
+    .replace(/&amp;/g, '&')
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+}
+
+function canonicalUrlFor(file) {
+  return file === 'index.html' ? `${SITE_URL}/` : `${SITE_URL}/${file}`;
+}
+
+function injectSeoTags(html, file) {
+  const canonical = canonicalUrlFor(file);
+  const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/);
+  const title = escapeHtmlAttr((titleMatch ? titleMatch[1] : 'Grid Escape').trim());
+  const descMatch = html.match(/<meta name="description" content="([^"]*)">/);
+  const description = descMatch ? descMatch[1] : '';
+  const heroMatch = html.match(/<div class="hero-img-wrap">\s*<img src="([^"]+)"/);
+  const image = heroMatch ? heroMatch[1] : LOGO_URL;
+  const article = articleMeta[file];
+
+  let tags = `  <link rel="canonical" href="${canonical}">
+  <meta property="og:type" content="${article ? 'article' : 'website'}">
+  <meta property="og:site_name" content="Grid Escape">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:url" content="${canonical}">
+  <meta property="og:image" content="${image}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title}">
+  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:image" content="${image}">`;
+
+  if (article) {
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: decodeEntities(article.title),
+      description: decodeEntities(description),
+      image,
+      datePublished: new Date(article.date).toISOString().split('T')[0],
+      author: { '@type': 'Organization', name: 'Grid Escape' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Grid Escape',
+        logo: { '@type': 'ImageObject', url: LOGO_URL }
+      },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonical }
+    };
+    tags += `\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`;
+  } else if (file === 'index.html') {
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Grid Escape',
+      url: SITE_URL,
+      description: decodeEntities(description)
+    };
+    tags += `\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`;
+  }
+
+  return html.replace('</head>', `${tags}\n</head>`);
+}
+
+// ---------- sitemap.xml / robots.txt generation ----------
+// Rebuilt every run from whatever's actually in src/, so a new page or
+// article is picked up automatically with no manual sitemap edits.
+
+function buildSitemap(files) {
+  const urls = files.map((file) => {
+    const article = articleMeta[file];
+    const lastmod = article
+      ? new Date(article.date).toISOString().split('T')[0]
+      : fs.statSync(path.join(srcDir, file)).mtime.toISOString().split('T')[0];
+    return `  <url>\n    <loc>${canonicalUrlFor(file)}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`;
+  });
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;
+}
+
+function buildRobotsTxt() {
+  return `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`;
+}
+
 // ---------- Main build ----------
 
 fs.rmSync(distDir, { recursive: true, force: true });
@@ -110,8 +217,9 @@ fs.mkdirSync(distDir, { recursive: true });
 
 fs.copyFileSync(path.join(partialsDir, 'chrome.css'), path.join(distDir, 'chrome.css'));
 
-for (const file of fs.readdirSync(srcDir)) {
-  if (!file.endsWith('.html')) continue;
+const srcFiles = fs.readdirSync(srcDir).filter((file) => file.endsWith('.html'));
+
+for (const file of srcFiles) {
   let html = fs.readFileSync(path.join(srcDir, file), 'utf8');
   html = html
     .replace('<!--@@HEADER@@-->', header)
@@ -128,6 +236,13 @@ for (const file of fs.readdirSync(srcDir)) {
     html = html.replace('<!--@@LATEST_ARTICLES@@-->', renderLatestArticles());
   }
 
+  html = injectSeoTags(html, file);
+
   fs.writeFileSync(path.join(distDir, file), html);
   console.log(`built ${file}`);
 }
+
+fs.writeFileSync(path.join(distDir, 'sitemap.xml'), buildSitemap(srcFiles));
+fs.writeFileSync(path.join(distDir, 'robots.txt'), buildRobotsTxt());
+console.log('built sitemap.xml');
+console.log('built robots.txt');
