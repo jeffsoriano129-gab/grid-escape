@@ -27,7 +27,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:var(--font-body);color:var(--gray-700);line-height:1.6;background:var(--white);}
-.wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+.wrap{max-width:1290px;margin:0 auto;padding:0 24px;}
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
 h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
@@ -119,6 +119,150 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .home-ad-banner{text-align:center;padding:2rem 0 0;}
 .home-ad-banner img{max-width:100%;height:auto;display:inline-block;}
 
+/* Category banner grid (3-up, image bg, no price) */
+.banner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.banner-card{position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end;}
+.banner-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0) 40%,rgba(20,20,20,.75) 100%);}
+.banner-content{position:relative;z-index:1;padding:1.6rem;color:var(--white);}
+.banner-content h3{color:var(--white);font-size:1.35rem;line-height:1.25;margin-bottom:.9rem;}
+.banner-shop{font-family:var(--font-head);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--white);border-bottom:1px solid var(--orange);padding-bottom:2px;display:inline-flex;align-items:center;gap:.35rem;}
+.banner-card:hover .banner-shop{color:var(--orange);}
+@media (max-width:900px){.banner-grid{grid-template-columns:1fr;}}
+
+/* About / essentials split */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
+.about-media{position:relative;}
+.about-media-main{border-radius:4px;overflow:hidden;aspect-ratio:5/4;}
+.about-media-main img{width:100%;height:100%;object-fit:cover;}
+.about-media-overlay{position:absolute;right:-8%;bottom:-12%;width:58%;border-radius:4px;overflow:hidden;aspect-ratio:5/4;border:6px solid var(--white);box-shadow:0 12px 30px rgba(0,0,0,.15);}
+.about-media-overlay img{width:100%;height:100%;object-fit:cover;}
+.about-dots{position:absolute;left:-8%;bottom:6%;width:120px;height:80px;background-image:radial-gradient(var(--gray-200) 1.5px,transparent 1.5px);background-size:12px 12px;z-index:-1;}
+.about-content p{color:var(--gray-500);margin-bottom:1.2rem;max-width:480px;}
+.about-content h2{font-size:2rem;margin-bottom:1.2rem;}
+.about-content .btn-outline-dark{display:inline-block;border:1px solid var(--gray-900);color:var(--gray-900);font-family:var(--font-head);font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;padding:.9rem 1.8rem;border-radius:3px;transition:background .15s,color .15s;}
+.about-content .btn-outline-dark:hover{background:var(--gray-900);color:var(--white);}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;}.about-media{margin-bottom:4rem;}}
+
+/* Special products carousel */
+.products-carousel{position:relative;}
+.products-track{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:.3rem;}
+.products-track::-webkit-scrollbar{display:none;}
+.product-card{flex:0 0 calc(25% - 1.13rem);scroll-snap-align:start;border:1px solid var(--gray-200);border-radius:6px;padding:1.2rem;position:relative;display:flex;flex-direction:column;background:var(--white);}
+.product-badge{position:absolute;top:0;left:0;background:#e05252;color:var(--white);font-family:var(--font-head);font-size:.68rem;font-weight:600;letter-spacing:.04em;padding:.3rem .7rem;}
+.product-badge.oos{top:1.9rem;background:var(--gray-900);}
+.product-thumb{aspect-ratio:1/1;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;}
+.product-thumb img{max-height:100%;object-fit:contain;}
+.product-cat{font-size:.78rem;color:var(--gray-400);margin-bottom:.3rem;}
+.product-card h4{font-size:1rem;line-height:1.35;margin-bottom:.5rem;font-family:var(--font-body);font-weight:600;color:var(--gray-900);}
+.product-stars{color:var(--orange);font-size:.85rem;margin-bottom:.9rem;letter-spacing:1px;}
+.product-stars .empty{color:var(--gray-200);}
+.product-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--gray-100);padding-top:.9rem;margin-top:auto;}
+.product-price{font-family:var(--font-head);font-size:1rem;color:var(--gray-900);}
+.product-price .old{font-family:var(--font-body);font-size:.82rem;color:var(--gray-400);text-decoration:line-through;display:block;font-weight:400;}
+.product-price.sale{color:var(--orange);}
+.product-action{font-family:var(--font-head);font-size:.75rem;letter-spacing:.03em;text-transform:uppercase;color:var(--gray-900);display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap;}
+.product-action:hover{color:var(--orange);}
+.carousel-controls{display:flex;justify-content:center;align-items:center;gap:1.2rem;margin-top:2rem;}
+.carousel-arrow{width:38px;height:38px;border-radius:50%;border:1px solid var(--gray-200);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .15s;}
+.carousel-arrow:hover{border-color:var(--orange);}
+.carousel-dots{display:flex;gap:.4rem;}
+.carousel-dots span{width:6px;height:6px;border-radius:50%;background:var(--gray-200);transition:background .15s;}
+.carousel-dots span.active{background:var(--orange);}
+@media (max-width:900px){.product-card{flex:0 0 calc(50% - .75rem);}}
+@media (max-width:600px){.product-card{flex:0 0 78%;}}
+
+/* Glamping destinations */
+.destination-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.destination-card{border-radius:6px;overflow:hidden;border:1px solid var(--gray-200);}
+.destination-thumb{aspect-ratio:4/3;background:var(--gray-200);}
+.destination-thumb img{width:100%;height:100%;object-fit:cover;}
+.destination-body{padding:1.4rem;}
+.destination-region{font-family:var(--font-head);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem;display:block;}
+.destination-card h4{font-size:1.1rem;margin-bottom:.5rem;}
+.destination-card p{font-size:.88rem;color:var(--gray-500);margin-bottom:1rem;}
+.destination-card a.destination-link{font-family:var(--font-head);font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--gray-900);border-bottom:1px solid var(--gray-900);padding-bottom:2px;}
+.destination-card a.destination-link:hover{color:var(--orange);border-color:var(--orange);}
+@media (max-width:900px){.destination-grid{grid-template-columns:1fr;}}
+
+/* FAQ split (dark, accordion + image) */
+.faq-split{background:var(--gray-900);color:#ccc;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}
+.faq-split-content{padding:90px 60px 90px 24px;max-width:620px;margin-left:auto;}
+.faq-split-content .eyebrow{margin-bottom:1rem;}
+.faq-split-content h2{color:var(--white);font-size:2.1rem;line-height:1.2;margin-bottom:1.1rem;}
+.faq-split-content>p{color:#aaa;margin-bottom:2.2rem;max-width:480px;}
+.faq-split-media{position:relative;min-height:460px;background:var(--gray-700);}
+.faq-split-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.faq-list-dark{border-top:1px solid rgba(255,255,255,.14);}
+.faq-item-dark{border-bottom:1px solid rgba(255,255,255,.14);}
+.faq-item-dark summary{list-style:none;cursor:pointer;padding:1.2rem 0;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
+.faq-item-dark summary::-webkit-details-marker{display:none;}
+.faq-q{font-size:.98rem;color:#eaeaea;position:relative;padding-left:1.15rem;line-height:1.5;}
+.faq-q::before{content:"\201C";position:absolute;left:0;top:-.15rem;color:var(--orange);font-size:1.3rem;font-family:Georgia,serif;}
+.faq-toggle{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:.9rem;margin-top:.1rem;transition:background .15s,color .15s;}
+.faq-toggle::before{content:"+";}
+.faq-item-dark[open] .faq-toggle{background:var(--orange);color:var(--white);border-color:var(--orange);}
+.faq-item-dark[open] .faq-toggle::before{content:"\2212";}
+.faq-answer-box{background:rgba(232,118,10,.1);border-left:2px solid var(--orange);border-radius:0 4px 4px 0;padding:1.1rem 1.3rem;margin:0 0 1.4rem 1.15rem;}
+.faq-answer-label{font-family:var(--font-head);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem;display:flex;align-items:center;gap:.35rem;}
+.faq-answer-box p{color:#ddd;font-size:.9rem;margin:0;}
+@media (max-width:900px){
+  .faq-split{grid-template-columns:1fr;}
+  .faq-split-content{max-width:none;margin-left:0;padding:70px 24px;}
+  .faq-split-media{min-height:320px;order:-1;}
+}
+
+/* Top Picks (dark, alternating promo + product cards) */
+.toppicks{
+  background-color:var(--gray-900);
+  background-image:repeating-linear-gradient(115deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 90px),
+    repeating-linear-gradient(25deg, rgba(255,255,255,.03) 0px, rgba(255,255,255,.03) 1px, transparent 1px, transparent 110px);
+  padding:80px 0;
+}
+.toppicks-heading{color:var(--white);text-align:center;margin-bottom:2.5rem;font-size:1.9rem;}
+.toppicks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.toppicks-promo{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4;background-size:cover;background-position:center;display:flex;align-items:flex-end;}
+.toppicks-promo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.05) 0%,rgba(10,10,10,.55) 65%,rgba(10,10,10,.8) 100%);}
+.toppicks-promo-content{position:relative;z-index:1;padding:2rem 1.4rem;color:var(--white);width:100%;text-align:center;}
+.toppicks-badge-label{font-family:var(--font-head);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;color:#eee;}
+.toppicks-badge-num{font-family:var(--font-head);font-size:2.8rem;font-weight:700;line-height:1;}
+.toppicks-badge-off{font-family:var(--font-head);font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem;}
+.toppicks-desc{font-size:.92rem;color:#eee;margin-bottom:1.4rem;}
+.toppicks-btn{display:inline-block;border:1px solid var(--white);color:var(--white);font-family:var(--font-head);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;padding:.8rem 1.6rem;transition:background .15s,color .15s;}
+.toppicks-btn:hover{background:var(--white);color:var(--gray-900);}
+.toppicks-product{background:var(--white);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;}
+.toppicks-product-img{aspect-ratio:1/1;background:var(--gray-100);}
+.toppicks-product-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.toppicks-product-body{padding:1.2rem;}
+.toppicks-cat{font-size:.78rem;color:var(--gray-400);margin-bottom:.3rem;}
+.toppicks-product-body h4{font-size:.95rem;line-height:1.35;margin-bottom:.5rem;font-family:var(--font-body);font-weight:600;color:var(--gray-900);}
+.toppicks-price-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--gray-100);padding-top:.8rem;margin-top:.4rem;}
+@media (max-width:900px){.toppicks-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.toppicks-grid{grid-template-columns:1fr;}}
+
+/* Data stats strip (dark full-bleed) */
+.stats-split{
+  position:relative;
+  background-color:var(--gray-900);
+  background-image:linear-gradient(180deg,rgba(10,10,10,.35) 0%,rgba(10,10,10,.5) 60%,rgba(10,10,10,.75) 100%),url('https://picsum.photos/seed/gridescape-family-camping-stats/1800/900');
+  background-size:cover;
+  background-position:center;
+  padding:100px 0 70px;
+  color:var(--white);
+}
+.stats-head{text-align:center;max-width:760px;margin:0 auto 3.5rem;}
+.stats-head .eyebrow{color:#ddd;justify-content:center;display:flex;align-items:center;gap:.7rem;}
+.stats-head .eyebrow::before,.stats-head .eyebrow::after{content:"";width:28px;height:1px;background:rgba(255,255,255,.4);}
+.stats-head h2{color:var(--white);font-size:2.2rem;line-height:1.25;margin-bottom:1rem;}
+.stats-head p{color:#ddd;font-style:italic;font-size:1.05rem;}
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.25);}
+.stats-col{padding:1.6rem 1.4rem 0 0;border-right:1px solid rgba(255,255,255,.25);}
+.stats-col:last-child{border-right:none;}
+.stats-index{font-family:var(--font-head);font-size:.7rem;letter-spacing:.1em;color:#aaa;margin-bottom:1rem;display:block;}
+.stats-value{font-family:var(--font-head);font-size:1.9rem;color:var(--white);margin-bottom:.7rem;line-height:1.15;}
+.stats-col p{font-size:.85rem;color:#ccc;line-height:1.55;}
+@media (max-width:900px){.stats-row{grid-template-columns:1fr 1fr;}.stats-col{border-right:none;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:1.4rem;}}
+@media (max-width:560px){.stats-row{grid-template-columns:1fr;}}
+
 /* Promo banner */
 .promo{background:var(--gray-900);color:var(--white);border-radius:8px;padding:3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;}
 .promo h3{color:var(--white);font-size:1.6rem;margin-bottom:.5rem;}
@@ -134,6 +278,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .news-item{border-top:2px solid var(--gray-900);padding-top:1rem;}
 .news-date{font-size:.75rem;color:var(--gray-400);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.5rem;display:block;}
 .news-item h4{font-size:1.05rem;margin-bottom:.4rem;}
+.news-item h4 a:hover{color:var(--orange);}
 .news-item p{font-size:.9rem;color:var(--gray-500);}
 
 /* Newsletter */
@@ -173,33 +318,197 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<div class="trust-bar">
-  <div class="trust-track">
-    <div class="trust-item">Independent Reviews</div>
-    <div class="trust-item">No Sponsored Rankings</div>
-    <div class="trust-item">Real-World Testing Notes</div>
-    <div class="trust-item">Updated Regularly</div>
-    <div class="trust-item" aria-hidden="true">Independent Reviews</div>
-    <div class="trust-item" aria-hidden="true">No Sponsored Rankings</div>
-    <div class="trust-item" aria-hidden="true">Real-World Testing Notes</div>
-    <div class="trust-item" aria-hidden="true">Updated Regularly</div>
-  </div>
-</div>
-
 <div class="wrap home-ad-banner">
   <a href="https://www.kqzyfj.com/click-101826268-17227808" target="_blank" rel="sponsored noopener">
     <img src="https://www.awltovhc.com/image-101826268-17227808" width="650" height="232" alt="Sponsored offer" border="0">
   </a>
 </div>
 
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="banner-grid">
+      <a href="solar.html" class="banner-card" style="background-image:url('https://picsum.photos/seed/gridescape-solar-power-backup/500/400');">
+        <div class="banner-content">
+          <h3>Best Solar Power<br>Backups</h3>
+          <span class="banner-shop">Shop Now →</span>
+        </div>
+      </a>
+      <a href="articles.html#vanlife" class="banner-card" style="background-image:url('https://picsum.photos/seed/gridescape-outerwear-hiking/500/400');">
+        <div class="banner-content">
+          <h3>Outerwear For<br>Anywhere</h3>
+          <span class="banner-shop">Shop Now →</span>
+        </div>
+      </a>
+      <a href="articles.html#camping" class="banner-card" style="background-image:url('https://picsum.photos/seed/gridescape-glamping-tent/500/400');">
+        <div class="banner-content">
+          <h3>Glamping<br>Essentials</h3>
+          <span class="banner-shop">Shop Now →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head" style="justify-content:center;text-align:center;">
+      <h2>Special Products</h2>
+    </div>
+    <div class="products-carousel">
+      <div class="products-track" id="specialProductsTrack">
+
+        <div class="product-card">
+          <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-product-headlamp/260/260" alt="Rechargeable LED headlamp" loading="lazy"></div>
+          <div class="product-cat">Camping, Van Life</div>
+          <h4>Rechargeable LED Headlamp for Off-Grid Nights</h4>
+          <div class="product-stars">★★★☆<span class="empty">☆</span></div>
+          <div class="product-bottom">
+            <div class="product-price">$34.99</div>
+            <a href="#" class="product-action">+ Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-product-solarpanel/260/260" alt="Portable folding solar panel" loading="lazy"></div>
+          <div class="product-cat">Solar, Van Life</div>
+          <h4>100W Portable Folding Solar Panel</h4>
+          <div class="product-stars">★★★★<span class="empty">☆</span></div>
+          <div class="product-bottom">
+            <div class="product-price">$189.00</div>
+            <a href="#" class="product-action">+ Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-badge">24% OFF</div>
+          <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-product-powerstation/260/260" alt="Compact portable power station" loading="lazy"></div>
+          <div class="product-cat">Solar, Camping</div>
+          <h4>Compact Portable Power Station – 500Wh</h4>
+          <div class="product-stars">★★★★<span class="empty">☆</span></div>
+          <div class="product-bottom">
+            <div class="product-price sale">$379.00<span class="old">$499.00</span></div>
+            <a href="#" class="product-action">+ Add to Cart</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-badge">77% OFF</div>
+          <div class="product-badge oos">Out Of Stock</div>
+          <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-product-trailboots/260/260" alt="Insulated trail boots" loading="lazy"></div>
+          <div class="product-cat">Hiking, Camping</div>
+          <h4>Insulated Trail Boots, Weatherproof</h4>
+          <div class="product-stars">★★★★<span class="empty">☆</span></div>
+          <div class="product-bottom">
+            <div class="product-price sale">$59.00<span class="old">$249.00</span></div>
+            <a href="#" class="product-action">+ Read More</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="carousel-controls">
+        <div class="carousel-arrow" onclick="document.getElementById('specialProductsTrack').scrollBy({left:-280,behavior:'smooth'})">‹</div>
+        <div class="carousel-dots" id="specialProductsDots"></div>
+        <div class="carousel-arrow" onclick="document.getElementById('specialProductsTrack').scrollBy({left:280,behavior:'smooth'})">›</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var track = document.getElementById('specialProductsTrack');
+  var dotsWrap = document.getElementById('specialProductsDots');
+  if(!track || !dotsWrap) return;
+  var cards = track.children.length;
+  for(var i=0;i<cards;i++){
+    var d = document.createElement('span');
+    if(i===0) d.className = 'active';
+    dotsWrap.appendChild(d);
+  }
+  track.addEventListener('scroll', function(){
+    var cardWidth = track.children[0].offsetWidth + 24;
+    var index = Math.round(track.scrollLeft / cardWidth);
+    Array.prototype.forEach.call(dotsWrap.children, function(dot, i){
+      dot.className = i === index ? 'active' : '';
+    });
+  });
+})();
+</script>
+
 <section class="section">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Latest Articles</h2>
-      <a href="articles.html">View All</a>
+    <div class="about-grid">
+      <div class="about-media">
+        <div class="about-dots"></div>
+        <div class="about-media-main">
+          <img src="https://picsum.photos/seed/gridescape-essentials-main/700/560" alt="Off-grid outdoor essentials gear laid out" loading="lazy">
+        </div>
+        <div class="about-media-overlay">
+          <img src="https://picsum.photos/seed/gridescape-essentials-overlay/400/320" alt="Camper packing outdoor essentials" loading="lazy">
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="eyebrow">Outdoor Essentials</div>
+        <h2>Everything you need before you head off-grid.</h2>
+        <p>From power banks to base layers, the right gear is the difference between a trip that goes smoothly and one that ends early. We've put together the essentials worth packing, whether you're headed out for a weekend or living off-grid full time.</p>
+        <p>Our picks cover portable power, lighting, cookware, and cold-weather layers — tested against real camping and van life conditions, not just spec sheets.</p>
+        <a href="tools.html" class="btn-outline-dark">Explore Now</a>
+      </div>
     </div>
-    <div class="article-grid">
-<!--@@LATEST_ARTICLES@@-->
+  </div>
+</section>
+
+<section class="toppicks">
+  <div class="wrap">
+    <h2 class="toppicks-heading">Top Picks</h2>
+    <div class="toppicks-grid">
+
+      <a href="articles.html#camping" class="toppicks-promo" style="background-image:url('https://picsum.photos/seed/gridescape-toppicks-tent-promo/450/600');">
+        <div class="toppicks-promo-content">
+          <div class="toppicks-badge-label">Up To</div>
+          <div class="toppicks-badge-num">50%</div>
+          <div class="toppicks-badge-off">Off</div>
+          <p class="toppicks-desc">selected camping equipment</p>
+          <span class="toppicks-btn">Shop Now</span>
+        </div>
+      </a>
+
+      <div class="toppicks-product">
+        <div class="toppicks-product-img"><img src="https://picsum.photos/seed/gridescape-product-teepee-tent/400/400" alt="Guide Gear 10x10 Teepee Tent for outdoor camping" loading="lazy"></div>
+        <div class="toppicks-product-body">
+          <div class="toppicks-cat">Tents</div>
+          <h4>Guide Gear 10'x10' Teepee Tent for Adults Outdoor Camping</h4>
+          <div class="product-stars">★★★☆<span class="empty">☆</span></div>
+          <div class="toppicks-price-row">
+            <div class="product-price">$695.63</div>
+            <a href="#" class="product-action">+ Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="articles.html#solar" class="toppicks-promo" style="background-image:url('https://picsum.photos/seed/gridescape-toppicks-campfire-promo/450/600');">
+        <div class="toppicks-promo-content">
+          <div class="toppicks-badge-label">Up To</div>
+          <div class="toppicks-badge-num">20%</div>
+          <div class="toppicks-badge-off">Off</div>
+          <p class="toppicks-desc">selected outdoor kit</p>
+          <span class="toppicks-btn">Shop Now</span>
+        </div>
+      </a>
+
+      <div class="toppicks-product">
+        <div class="toppicks-product-img"><img src="https://picsum.photos/seed/gridescape-product-jackery/400/400" alt="Jackery Explorer 300 portable power station" loading="lazy"></div>
+        <div class="toppicks-product-body">
+          <div class="toppicks-cat">Solar</div>
+          <h4>Jackery Explorer 300 Portable Power Station</h4>
+          <div class="product-stars">★★★★<span class="empty">☆</span></div>
+          <div class="toppicks-price-row">
+            <div class="product-price">$299.99</div>
+            <a href="#" class="product-action">+ Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -265,6 +574,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
+
 <section class="section">
   <div class="wrap">
     <div class="promo">
@@ -277,19 +587,82 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="stats-split">
+  <div class="wrap">
+    <div class="stats-head">
+      <div class="eyebrow">Why Family Camping Works</div>
+      <h2>What Happens When Families Unplug Together.</h2>
+      <p>The research keeps landing on the same conclusion — time outdoors together changes how families connect.</p>
+    </div>
+    <div class="stats-row">
+      <div class="stats-col">
+        <span class="stats-index">01</span>
+        <div class="stats-value">97%</div>
+        <p>of campers say happiness is their #1 reason for going camping, more than any other motivation surveyed.</p>
+      </div>
+      <div class="stats-col">
+        <span class="stats-index">02</span>
+        <div class="stats-value">44% vs 31%</div>
+        <p>of regular campers report having optimal mental health ("flourishing"), compared to non-campers.</p>
+      </div>
+      <div class="stats-col">
+        <span class="stats-index">03</span>
+        <div class="stats-value">93%</div>
+        <p>of campers say the trip meaningfully improved their overall health and wellbeing, not just their mood in the moment.</p>
+      </div>
+      <div class="stats-col">
+        <span class="stats-index">04</span>
+        <div class="stats-value">31 Minutes</div>
+        <p>is the average time US families spend actively bonding each day — a single weekend around the fire can outpace it.</p>
+      </div>
+      <div class="stats-col">
+        <span class="stats-index">05</span>
+        <div class="stats-value">88%</div>
+        <p>of campers go specifically to disconnect from screens and everyday stress, together as a family.</p>
+      </div>
+    </div>
+    <p style="text-align:center;color:#888;font-size:.78rem;margin-top:2rem;">Sources: The Outjoyment Report (Sheffield Hallam University &amp; Camping and Caravanning Club, 2022); U.S. Bureau of Labor Statistics time-use data.</p>
+  </div>
+</section>
+
+<section class="section">
   <div class="wrap">
     <div class="section-head">
-      <h2>Browse by Topic</h2>
+      <h2>Top Glamping Destinations</h2>
+      <a href="articles.html#camping">More Destinations</a>
     </div>
-    <div class="pills">
-      <a href="solar.html" class="pill active">Solar</a>
-      <a href="articles.html#camping" class="pill">Camping</a>
-      <a href="articles.html#vanlife" class="pill">Van Life</a>
-      <a href="articles.html#batteries" class="pill">Batteries</a>
-      <a href="articles.html#generators" class="pill">Generators</a>
-      <a href="articles.html#gear" class="pill">Gear Reviews</a>
-      <a href="news.html" class="pill">Industry News</a>
+    <div class="destination-grid">
+
+      <div class="destination-card">
+        <div class="destination-thumb"><img src="https://picsum.photos/seed/gridescape-glamping-us/500/375" alt="Glamping destination in the United States" loading="lazy"></div>
+        <div class="destination-body">
+          <span class="destination-region">United States</span>
+          <h4>Destination name goes here</h4>
+          <p>Short description of the setup, what makes it worth the trip, and what to expect on-site.</p>
+          <a href="#" class="destination-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="destination-card">
+        <div class="destination-thumb"><img src="https://picsum.photos/seed/gridescape-glamping-europe/500/375" alt="Glamping destination in Europe" loading="lazy"></div>
+        <div class="destination-body">
+          <span class="destination-region">Europe</span>
+          <h4>Destination name goes here</h4>
+          <p>Short description of the setup, what makes it worth the trip, and what to expect on-site.</p>
+          <a href="#" class="destination-link">View Details →</a>
+        </div>
+      </div>
+
+      <div class="destination-card">
+        <div class="destination-thumb"><img src="https://picsum.photos/seed/gridescape-glamping-australia/500/375" alt="Glamping destination in Australia" loading="lazy"></div>
+        <div class="destination-body">
+          <span class="destination-region">Australia</span>
+          <h4>Destination name goes here</h4>
+          <p>Short description of the setup, what makes it worth the trip, and what to expect on-site.</p>
+          <a href="#" class="destination-link">View Details →</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -297,26 +670,96 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <h2>Industry News</h2>
-      <a href="news.html">More News</a>
+      <h2>Latest Articles</h2>
+      <a href="articles.html">View All</a>
     </div>
     <div class="news-grid">
       <div class="news-item">
-        <span class="news-date">July 2026</span>
-        <h4>New portable power station tariffs could raise prices this fall</h4>
-        <p>What the latest trade policy changes could mean for solar generator buyers.</p>
+        <span class="news-date">Batteries</span>
+        <h4><a href="best-portable-power-stations-campers.html">Portable Power Stations Compared: Which One Fits Your Trip</a></h4>
+        <p>A side-by-side look at capacity, output, and recharge speed across today's top camping power stations.</p>
       </div>
       <div class="news-item">
-        <span class="news-date">June 2026</span>
-        <h4>Lithium battery costs continue to drop industry-wide</h4>
-        <p>A look at what falling cell prices mean for off-grid power kits.</p>
+        <span class="news-date">Camping</span>
+        <h4><a href="first-time-hikers-guide.html">First-Time Hikers Guide: What to Pack and What to Skip</a></h4>
+        <p>The essentials worth carrying on your first serious hike, and the "must-haves" that usually aren't.</p>
       </div>
       <div class="news-item">
-        <span class="news-date">June 2026</span>
-        <h4>More campgrounds are adding solar-ready hookups</h4>
-        <p>A growing number of parks are building in support for portable solar setups.</p>
+        <span class="news-date">Camping</span>
+        <h4><a href="e-trikes-camping-glamping.html">Bringing Grandma and Grandpa Along: E-Trikes for Camping &amp; Glamping</a></h4>
+        <p>How a stable, easy-to-ride e-trike can help older relatives get around a campground or glamping resort comfortably.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="faq-split">
+  <div class="faq-split-content">
+    <div class="eyebrow">Common Questions</div>
+    <h2>What People Ask Before They Buy.</h2>
+    <p>Off-grid power decisions come with real trade-offs. Here's what we get asked most, answered straight — no upsell, no vague specs.</p>
+
+    <div class="faq-list-dark">
+
+      <details class="faq-item-dark" open>
+        <summary>
+          <span class="faq-q">How big a solar panel do I need to run a mini-fridge?</span>
+          <span class="faq-toggle"></span>
+        </summary>
+        <div class="faq-answer-box">
+          <div class="faq-answer-label">✓ Quick Answer</div>
+          <p>Most 12V mini-fridges draw around 40-60W continuously. A 100W panel usually keeps one running through a full day of direct sun, but cloudy days or higher-draw fridges may call for 150-200W plus a battery buffer overnight.</p>
+        </div>
+      </details>
+
+      <details class="faq-item-dark">
+        <summary>
+          <span class="faq-q">What's the difference between a power station and a generator?</span>
+          <span class="faq-toggle"></span>
+        </summary>
+        <div class="faq-answer-box">
+          <div class="faq-answer-label">✓ Quick Answer</div>
+          <p>A power station stores energy in a battery and is silent and fume-free, but has a fixed capacity. A generator burns fuel to produce power continuously — it can run indefinitely with fuel, but it's louder and needs ventilation.</p>
+        </div>
+      </details>
+
+      <details class="faq-item-dark">
+        <summary>
+          <span class="faq-q">How long will a power station keep my devices running?</span>
+          <span class="faq-toggle"></span>
+        </summary>
+        <div class="faq-answer-box">
+          <div class="faq-answer-label">✓ Quick Answer</div>
+          <p>It depends on the station's watt-hour (Wh) capacity and what you're powering. As a rough guide, a 500Wh station runs a laptop for 8-10 hours or a small fridge for about half a day. Our power calculator can estimate your exact setup.</p>
+        </div>
+      </details>
+
+      <details class="faq-item-dark">
+        <summary>
+          <span class="faq-q">Can I run an RV air conditioner off a power station?</span>
+          <span class="faq-toggle"></span>
+        </summary>
+        <div class="faq-answer-box">
+          <div class="faq-answer-label">✓ Quick Answer</div>
+          <p>Only with a high-capacity station (2000Wh+) and a large enough inverter, since AC units draw a heavy startup surge. For most van life setups, a power station suits lights, fans, and electronics better than full AC.</p>
+        </div>
+      </details>
+
+      <details class="faq-item-dark">
+        <summary>
+          <span class="faq-q">Do I need a separate inverter if I have a power station?</span>
+          <span class="faq-toggle"></span>
+        </summary>
+        <div class="faq-answer-box">
+          <div class="faq-answer-label">✓ Quick Answer</div>
+          <p>No — nearly all power stations have a built-in inverter and standard AC outlets, so regular household devices plug in directly. A separate inverter is only needed wiring power straight from a battery bank without a station in between.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+  <div class="faq-split-media">
+    <img src="https://picsum.photos/seed/gridescape-faq-placeholder/900/1100" alt="Placeholder — replace with your own image" loading="lazy">
   </div>
 </section>
 
