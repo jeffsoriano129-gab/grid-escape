@@ -489,21 +489,28 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 
 <script>
 (function(){
-  var revealEls = document.querySelectorAll('.reveal');
-  if(!revealEls.length) return;
-  if(!('IntersectionObserver' in window)){
-    revealEls.forEach(function(el){ el.classList.add('in-view'); });
-    return;
+  function initReveal(){
+    var revealEls = document.querySelectorAll('.reveal');
+    if(!revealEls.length) return;
+    if(!('IntersectionObserver' in window)){
+      revealEls.forEach(function(el){ el.classList.add('in-view'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ observer.observe(el); });
   }
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-  revealEls.forEach(function(el){ observer.observe(el); });
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
 })();
 </script>
 
