@@ -220,6 +220,9 @@ fs.rmSync(distDir, { recursive: true, force: true });
 fs.mkdirSync(distDir, { recursive: true });
 
 fs.copyFileSync(path.join(partialsDir, 'chrome.css'), path.join(distDir, 'chrome.css'));
+// Only ship assets/generated/ — assets/image-uploads/ (multi-MB masters) and
+// the CDN zip are intentionally kept out of the deployed site.
+fs.cpSync(path.join(__dirname, 'assets', 'generated'), path.join(distDir, 'assets', 'generated'), { recursive: true });
 
 const srcFiles = fs.readdirSync(srcDir).filter((file) => file.endsWith('.html'));
 
