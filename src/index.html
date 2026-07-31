@@ -276,6 +276,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 /* News strip */
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
 .news-item{border-top:2px solid var(--gray-900);padding-top:1rem;}
+.news-thumb{aspect-ratio:16/9;border-radius:4px;overflow:hidden;margin-bottom:1rem;}
+.news-thumb img{width:100%;height:100%;object-fit:cover;}
 .news-date{font-size:.75rem;color:var(--gray-400);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.5rem;display:block;}
 .news-item h4{font-size:1.05rem;margin-bottom:.4rem;}
 .news-item h4 a:hover{color:var(--orange);}
@@ -667,32 +669,6 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Latest Articles</h2>
-      <a href="articles.html">View All</a>
-    </div>
-    <div class="news-grid">
-      <div class="news-item">
-        <span class="news-date">Batteries</span>
-        <h4><a href="best-portable-power-stations-campers.html">Portable Power Stations Compared: Which One Fits Your Trip</a></h4>
-        <p>A side-by-side look at capacity, output, and recharge speed across today's top camping power stations.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Camping</span>
-        <h4><a href="first-time-hikers-guide.html">First-Time Hikers Guide: What to Pack and What to Skip</a></h4>
-        <p>The essentials worth carrying on your first serious hike, and the "must-haves" that usually aren't.</p>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Camping</span>
-        <h4><a href="e-trikes-camping-glamping.html">Bringing Grandma and Grandpa Along: E-Trikes for Camping &amp; Glamping</a></h4>
-        <p>How a stable, easy-to-ride e-trike can help older relatives get around a campground or glamping resort comfortably.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="faq-split">
   <div class="faq-split-content">
     <div class="eyebrow">Common Questions</div>
@@ -760,6 +736,35 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
   <div class="faq-split-media">
     <img src="https://picsum.photos/seed/gridescape-faq-placeholder/900/1100" alt="Placeholder — replace with your own image" loading="lazy">
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Latest Articles</h2>
+      <a href="articles.html">View All</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-item">
+        <div class="news-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/portable-power-campsite.png" alt="Portable power station set up on a table at a campsite" loading="lazy"></div>
+        <span class="news-date">Batteries</span>
+        <h4><a href="best-portable-power-stations-campers.html">Portable Power Stations Compared: Which One Fits Your Trip</a></h4>
+        <p>A side-by-side look at capacity, output, and recharge speed across today's top camping power stations.</p>
+      </div>
+      <div class="news-item">
+        <div class="news-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/first-time-hiker.png" alt="Hiker on a forest trail wearing a daypack and hiking boots" loading="lazy"></div>
+        <span class="news-date">Camping</span>
+        <h4><a href="first-time-hikers-guide.html">First-Time Hikers Guide: What to Pack and What to Skip</a></h4>
+        <p>The essentials worth carrying on your first serious hike, and the "must-haves" that usually aren't.</p>
+      </div>
+      <div class="news-item">
+        <div class="news-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/etrike-campground.png" alt="Older couple riding an electric trike along a campground road" loading="lazy"></div>
+        <span class="news-date">Camping</span>
+        <h4><a href="e-trikes-camping-glamping.html">Bringing Grandma and Grandpa Along: E-Trikes for Camping &amp; Glamping</a></h4>
+        <p>How a stable, easy-to-ride e-trike can help older relatives get around a campground or glamping resort comfortably.</p>
+      </div>
+    </div>
   </div>
 </section>
 
