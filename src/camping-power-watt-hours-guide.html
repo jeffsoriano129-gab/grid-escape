@@ -61,8 +61,7 @@ img{max-width:100%;display:block;}
 
 /* Inline image */
 .inline-img-wrap{margin:1.8rem 0;}
-.inline-img{min-height:260px;border-radius:3px;overflow:hidden;}
-.inline-img img{display:block;width:100%;height:260px;object-fit:cover;}
+.inline-img{min-height:260px;border-radius:3px;}
 .inline-img-caption{font-size:.8rem;color:var(--gray-400);margin-top:.5rem;font-style:italic;}
 
 /* Tags */
@@ -85,8 +84,7 @@ img{max-width:100%;display:block;}
 .newsletter-btn{width:100%;background:var(--orange);color:var(--white);font-family:var(--font-head);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.65rem;border:none;border-radius:2px;cursor:pointer;transition:background .18s;}
 .newsletter-btn:hover{background:var(--orange-dk);}
 .related-mini{display:flex;gap:.8rem;margin-bottom:1rem;align-items:flex-start;}
-.related-mini-img{width:64px;height:56px;flex-shrink:0;border-radius:2px;font-size:.6rem;overflow:hidden;}
-.related-mini-img img{display:block;width:100%;height:100%;object-fit:cover;}
+.related-mini-img{width:64px;height:56px;flex-shrink:0;border-radius:2px;font-size:.6rem;}
 .related-mini-title{font-size:.85rem;font-weight:600;color:var(--gray-900);line-height:1.35;}
 .related-mini-meta{font-size:.72rem;color:var(--gray-400);margin-top:.2rem;}
 
@@ -97,8 +95,7 @@ img{max-width:100%;display:block;}
 @media (max-width:900px){.related-grid{grid-template-columns:1fr;}}
 .article-card{background:var(--white);border-radius:4px;overflow:hidden;transition:transform .18s;box-shadow:0 1px 3px rgba(0,0,0,.06);}
 .article-card:hover{transform:translateY(-3px);}
-.ac-img{min-height:170px;overflow:hidden;}
-.ac-img img{display:block;width:100%;height:170px;object-fit:cover;}
+.ac-img{min-height:170px;}
 .ac-body{padding:1.2rem 1.3rem 1.4rem;}
 .ac-tag{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);}
 .ac-title{font-family:var(--font-head);font-size:1.05rem;font-weight:600;color:var(--gray-900);margin:.5rem 0 .6rem;line-height:1.35;}
@@ -156,7 +153,7 @@ img{max-width:100%;display:block;}
 <p>Adding those up gives a daily total of roughly 486Wh in this example. That's the minimum capacity you'd want for a single day without recharging — and in practice, most people add a buffer on top of that for inefficiency and unexpected use.</p>
 
 <div class="inline-img-wrap">
-  <div class="inline-img"><img src="assets/generated/camping-power-setup.png" alt="Portable power station charging a lantern, fan, and phone at a forest campsite" loading="lazy"></div>
+  <div class="ph inline-img">Photo: Portable power station at a campsite with devices charging<br>1200 × 700px</div>
   <p class="inline-img-caption">A mid-size power station running lights, a fan, and charging devices at a campsite.</p>
 </div>
 
@@ -245,14 +242,14 @@ img{max-width:100%;display:block;}
   <div class="sidebar-widget">
     <div class="sidebar-widget-title">Related Reads</div>
     <div class="related-mini">
-          <div class="related-mini-img"><img src="assets/generated/off-grid-solar-flow.png" alt="Off-grid solar components" loading="lazy"></div>
+          <div class="ph related-mini-img">Img</div>
           <div>
             <div class="related-mini-title"><a href="solar-power-101-off-grid-basics.html">Solar Power 101: How Off-Grid Solar Works</a></div>
             <div class="related-mini-meta">Solar · 7 min read</div>
           </div>
         </div>
 <div class="related-mini">
-          <div class="related-mini-img"><img src="assets/generated/van-electrical-layout.png" alt="Camper van electrical layout" loading="lazy"></div>
+          <div class="ph related-mini-img">Img</div>
           <div>
             <div class="related-mini-title"><a href="van-life-electrical-basics.html">Van Life Electrical Systems Explained</a></div>
             <div class="related-mini-meta">Van Life · 8 min read</div>
@@ -269,7 +266,7 @@ img{max-width:100%;display:block;}
     <div class="related-grid">
     
     <a href="solar-power-101-off-grid-basics.html" class="article-card">
-      <div class="ac-img"><img src="assets/generated/off-grid-solar-flow.png" alt="Off-grid solar components" loading="lazy"></div>
+      <div class="ac-img"><div class="ph" style="min-height:170px;">Article Image</div></div>
       <div class="ac-body">
         <span class="ac-tag">Solar</span>
         <div class="ac-title">Solar Power 101: How Off-Grid Solar Systems Actually Work</div>
@@ -278,7 +275,7 @@ img{max-width:100%;display:block;}
     </a>
 
     <a href="van-life-electrical-basics.html" class="article-card">
-      <div class="ac-img"><img src="assets/generated/van-electrical-layout.png" alt="Camper van electrical layout" loading="lazy"></div>
+      <div class="ac-img"><div class="ph" style="min-height:170px;">Article Image</div></div>
       <div class="ac-body">
         <span class="ac-tag">Van Life</span>
         <div class="ac-title">Van Life Electrical Systems Explained: The Basics Before You Build</div>
@@ -287,7 +284,7 @@ img{max-width:100%;display:block;}
     </a>
 
     <a href="index.html" class="article-card">
-      <div class="ac-img"><img src="assets/generated/camping-power-setup.png" alt="Camping power setup" loading="lazy"></div>
+      <div class="ac-img"><div class="ph" style="min-height:170px;">Article Image</div></div>
       <div class="ac-body">
         <span class="ac-tag">Camping</span>
         <div class="ac-title">More Camping Power Guides</div>
