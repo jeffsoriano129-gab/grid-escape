@@ -150,7 +150,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .product-card{flex:0 0 calc(25% - 1.13rem);scroll-snap-align:start;border:1px solid var(--gray-200);border-radius:6px;padding:1.2rem;position:relative;display:flex;flex-direction:column;background:var(--white);}
 .product-badge{position:absolute;top:0;left:0;background:#e05252;color:var(--white);font-family:var(--font-head);font-size:.68rem;font-weight:600;letter-spacing:.04em;padding:.3rem .7rem;}
 .product-badge.oos{top:1.9rem;background:var(--gray-900);}
-.product-thumb{aspect-ratio:1/1;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;}
+.product-thumb{aspect-ratio:1/1;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .product-thumb img{max-height:100%;object-fit:contain;}
 .product-cat{font-size:.78rem;color:var(--gray-400);margin-bottom:.3rem;}
 .product-card h4{font-size:1rem;line-height:1.35;margin-bottom:.5rem;font-family:var(--font-body);font-weight:600;color:var(--gray-900);}
@@ -255,7 +255,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .stats-head h2{color:var(--white);font-size:2.2rem;line-height:1.25;margin-bottom:1rem;}
 .stats-head p{color:#ddd;font-style:italic;font-size:1.05rem;}
 .stats-row{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.25);}
-.stats-col{padding:1.6rem 1.4rem 0 0;border-right:1px solid rgba(255,255,255,.25);}
+.stats-col{padding:1.8rem 1.6rem;border-right:1px solid rgba(255,255,255,.25);}
 .stats-col:last-child{border-right:none;}
 .stats-index{font-family:var(--font-head);font-size:.7rem;letter-spacing:.1em;color:#aaa;margin-bottom:1rem;display:block;}
 .stats-value{font-family:var(--font-head);font-size:1.9rem;color:var(--white);margin-bottom:.7rem;line-height:1.15;}
@@ -300,6 +300,56 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 @media (min-width:901px){
   .hero{padding:180px 0;}
 }
+
+/* Scroll-in reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+}
+
+/* Hover interactions */
+.banner-card{transition:transform .25s ease,box-shadow .25s ease;}
+.banner-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.18);}
+.banner-card::before{transition:background .25s ease;}
+
+.product-card{transition:transform .2s ease,box-shadow .2s ease;}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.08);}
+.product-thumb img{transition:transform .35s ease;}
+.product-card:hover .product-thumb img{transform:scale(1.06);}
+
+.about-media-main,.about-media-overlay{transition:transform .3s ease,box-shadow .3s ease;}
+.about-media-main:hover,.about-media-overlay:hover{transform:translateY(-4px);}
+.about-media-main img,.about-media-overlay img{transition:transform .4s ease;}
+.about-media-main:hover img,.about-media-overlay:hover img{transform:scale(1.06);}
+
+.toppicks-product{transition:transform .2s ease,box-shadow .2s ease;}
+.toppicks-product:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(0,0,0,.35);}
+.toppicks-product-img img{transition:transform .35s ease;}
+.toppicks-product:hover .toppicks-product-img img{transform:scale(1.06);}
+.toppicks-promo{transition:transform .25s ease;}
+.toppicks-promo:hover{transform:translateY(-4px);}
+
+.article-thumb img{transition:transform .4s ease;}
+.article-card:hover .article-thumb img{transform:scale(1.05);}
+.article-card{transition:transform .2s ease;}
+.article-card:hover{transform:translateY(-3px);}
+
+.destination-card{transition:transform .25s ease,box-shadow .25s ease;}
+.destination-card:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(0,0,0,.1);}
+.destination-thumb img{transition:transform .4s ease;}
+.destination-card:hover .destination-thumb img{transform:scale(1.06);}
+
+.news-item{transition:transform .2s ease;}
+.news-item:hover{transform:translateY(-3px);}
+.news-thumb img{transition:transform .4s ease;}
+.news-item:hover .news-thumb img{transform:scale(1.06);}
+
+.carousel-arrow{transition:border-color .15s ease,transform .15s ease;}
+.carousel-arrow:hover{transform:scale(1.08);}
+
+.stats-col{transition:background .2s ease;}
+.stats-col:hover{background:rgba(255,255,255,.04);}
 </style>
 </head>
 <body>
@@ -326,7 +376,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </a>
 </div>
 
-<section class="section" style="padding-top:0;">
+<section class="section reveal" style="padding-top:0;">
   <div class="wrap">
     <div class="banner-grid">
       <a href="solar.html" class="banner-card" style="background-image:url('https://picsum.photos/seed/gridescape-solar-power-backup/500/400');">
@@ -351,7 +401,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt reveal">
   <div class="wrap">
     <div class="section-head" style="justify-content:center;text-align:center;">
       <h2>Special Products</h2>
@@ -437,7 +487,27 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 })();
 </script>
 
-<section class="section">
+<script>
+(function(){
+  var revealEls = document.querySelectorAll('.reveal');
+  if(!revealEls.length) return;
+  if(!('IntersectionObserver' in window)){
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(function(el){ observer.observe(el); });
+})();
+</script>
+
+<section class="section reveal">
   <div class="wrap">
     <div class="about-grid">
       <div class="about-media">
@@ -460,7 +530,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="toppicks">
+<section class="toppicks reveal">
   <div class="wrap">
     <h2 class="toppicks-heading">Top Picks</h2>
     <div class="toppicks-grid">
@@ -515,7 +585,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt reveal">
   <div class="wrap">
     <div class="section-head">
       <h2>Power Backups: Which Station Fits Your Setup</h2>
@@ -577,7 +647,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 </section>
 
 
-<section class="section">
+<section class="section reveal">
   <div class="wrap">
     <div class="promo">
       <div>
@@ -589,7 +659,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="stats-split">
+<section class="stats-split reveal">
   <div class="wrap">
     <div class="stats-head">
       <div class="eyebrow">Why Family Camping Works</div>
@@ -627,7 +697,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="section">
+<section class="section reveal">
   <div class="wrap">
     <div class="section-head">
       <h2>Top Glamping Destinations</h2>
@@ -669,7 +739,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="faq-split">
+<section class="faq-split reveal">
   <div class="faq-split-content">
     <div class="eyebrow">Common Questions</div>
     <h2>What People Ask Before They Buy.</h2>
@@ -735,11 +805,11 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
     </div>
   </div>
   <div class="faq-split-media">
-    <img src="https://picsum.photos/seed/gridescape-faq-placeholder/900/1100" alt="Placeholder — replace with your own image" loading="lazy">
+    <img src="assets/generated/camping-power-setup.png" alt="Portable power station powering essential campsite gear" loading="lazy">
   </div>
 </section>
 
-<section class="section">
+<section class="section reveal">
   <div class="wrap">
     <div class="section-head">
       <h2>Latest Articles</h2>
@@ -768,7 +838,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="section section-dark newsletter">
+<section class="section section-dark newsletter reveal">
   <div class="wrap">
     <h2>Get off-grid tips in your inbox</h2>
     <p>New guides, gear picks, and deals — no spam, unsubscribe anytime.</p>
