@@ -33,9 +33,13 @@ function renderJumpNav() {
   return `<nav class="jump-nav" aria-label="Article topics">\n  <div class="wrap jump-track">\n${pills}\n  </div>\n</nav>`;
 }
 
+function imageUrl(image, size) {
+  return image.startsWith('http') ? image : `https://picsum.photos/seed/${image}/${size}`;
+}
+
 function renderArticleCard(article) {
   return `      <a href="${article.file}" class="article-card">
-        <div class="ac-img"><img src="https://picsum.photos/seed/${article.image}/800/500" alt="${article.alt}" loading="lazy"></div>
+        <div class="ac-img"><img src="${imageUrl(article.image, '800/500')}" alt="${article.alt}" loading="lazy"></div>
         <div class="ac-body">
           <span class="ac-tag">${article.tag}</span>
           <div class="ac-title">${article.title}</div>
@@ -96,7 +100,7 @@ function renderLatestArticles(count = 3) {
   const [featured, ...rest] = latest;
 
   const featuredHtml = `      <a href="${featured.file}" class="article-card article-featured">
-        <div class="article-thumb"><img src="https://picsum.photos/seed/${featured.image}/1400/700" alt="${featured.alt}" loading="lazy"></div>
+        <div class="article-thumb"><img src="${imageUrl(featured.image, '1400/700')}" alt="${featured.alt}" loading="lazy"></div>
         <span class="article-cat">${featured.tag}</span>
         <h3>${featured.title}</h3>
         <p>${featured.excerpt || ''}</p>
@@ -104,7 +108,7 @@ function renderLatestArticles(count = 3) {
 
   const sideHtml = rest
     .map((a) => `        <a href="${a.file}" class="article-card">
-          <div class="article-thumb"><img src="https://picsum.photos/seed/${a.image}/800/500" alt="${a.alt}" loading="lazy"></div>
+          <div class="article-thumb"><img src="${imageUrl(a.image, '800/500')}" alt="${a.alt}" loading="lazy"></div>
           <span class="article-cat">${a.tag}</span>
           <h3>${a.title}</h3>
           <p>${a.excerpt || ''}</p>
