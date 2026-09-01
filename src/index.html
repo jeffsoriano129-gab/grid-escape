@@ -16,27 +16,49 @@
 <title>Grid Escape — Off-Grid Power, Solar & Outdoor Living</title>
 <meta name="description" content="Guides, reviews, and news on off-grid power, solar energy, camping, and van life.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="chrome.css">
 <style>
 :root{
   --orange:#e8760a; --orange-dk:#c95f00;
   --gray-900:#1a1a1a; --gray-700:#333333; --gray-500:#666666; --gray-400:#888888;
   --gray-200:#e2e2e2; --gray-100:#f5f5f3; --white:#ffffff;
-  --font-head:'Barlow',sans-serif; --font-body:'Barlow',sans-serif;
+  --font-head:'Mona Sans',sans-serif; --font-body:'Mona Sans',sans-serif;
+
+  /* Type scale */
+  --fs-body:16px; --fw-body:500; --ls-body:-0.16px; --lh-body:1.5;
+  --fs-h1:32px; --fw-h1:700; --lh-h1:1; --ls-h1:-0.64px;
+  --fs-h2:18px; --fw-h2:500; --ls-h2:-0.36px;
+  --fs-h3:clamp(1.75rem,4.5vw,2.719rem); --fw-h3:700; --lh-h3:1; --ls-h3:-0.87px;
+  --fs-h4:18px; --fw-h4:600;
+  --fs-h5:28px; --fw-h5:700; --lh-h5:1; --ls-h5:-0.28px;
+  --fs-h6:20px; --fw-h6:700; --lh-h6:1; --ls-h6:-0.2px;
+  --fs-nav:18px; --fw-nav:600; --ls-nav:-0.16px;
+  --fs-card-title:28px; --fw-card-title:700; --ls-card-title:0.28px;
+  --fs-price:24px; --fw-price:500; --ls-price:-0.16px;
+
+  /* Spacing (10px base unit) */
+  --space-1:10px; --space-2:20px; --space-3:30px; --space-4:40px; --space-5:50px;
+  --container-max:1660px; --container-pad:20px;
+  --section-pad:var(--space-5);
+  --grid-gap:var(--space-2);
+
+  /* Buttons */
+  --btn-lg-pad:20px 45px; --btn-sm-pad:9px 30px 6px;
+  --radius-btn:30px; --radius-card:0;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:var(--font-body);color:var(--gray-700);line-height:1.6;background:var(--white);}
-.wrap{max-width:1290px;margin:0 auto;padding:0 24px;}
+body{font-family:var(--font-body);font-size:var(--fs-body);font-weight:var(--fw-body);letter-spacing:var(--ls-body);color:var(--gray-700);line-height:var(--lh-body);background:var(--white);}
+.wrap{max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);}
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
-h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-head);color:var(--gray-900);}
 
 /* Section rhythm */
-.section{padding:80px 0;}
+.section{padding:var(--section-pad) 0;}
 .section-alt{background:var(--gray-100);}
 .section-dark{background:var(--gray-900);color:var(--gray-200);}
-.eyebrow{font-family:var(--font-head);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:.6rem;}
+.eyebrow{font-family:var(--font-head);font-size:var(--fs-h2);font-weight:var(--fw-h2);letter-spacing:var(--ls-h2);text-transform:uppercase;color:var(--orange);margin-bottom:.6rem;}
 
 /* Hero */
 .hero{
@@ -54,10 +76,14 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 }
 .hero .wrap{position:relative;z-index:1;}
 .hero-wrap{max-width:820px;}
-.hero h1{font-size:clamp(2rem,8vw,5em);line-height:1.15;color:var(--white);margin-bottom:1.2rem;}
+.hero h1{font-size:var(--fs-h3);font-weight:var(--fw-h3);line-height:var(--lh-h3);letter-spacing:var(--ls-h3);text-transform:uppercase;color:var(--white);margin-bottom:1.2rem;}
 .hero p{font-size:1.05rem;color:#c9c9c9;margin-bottom:2rem;max-width:480px;}
-.hero-btns{display:flex;gap:1rem;}
-.btn{font-family:var(--font-head);font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;padding:.9rem 1.8rem;border-radius:3px;display:inline-block;transition:background .15s,border-color .15s;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:2.6rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.15);}
+.hero-tag{display:flex;align-items:center;gap:.6rem;}
+.hero-tag strong{font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:var(--white);}
+.hero-tag span{font-size:.78rem;color:#aaa;line-height:1.3;max-width:110px;}
+.btn{font-family:var(--font-head);font-size:.85rem;letter-spacing:var(--ls-body);text-transform:uppercase;font-weight:600;padding:var(--btn-lg-pad);border-radius:var(--radius-btn);display:inline-block;transition:background .15s,border-color .15s;}
 .btn-primary{background:var(--orange);color:var(--white);}
 .btn-primary:hover{background:var(--orange-dk);}
 .btn-outline{border:1px solid #555;color:var(--white);}
@@ -73,13 +99,13 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 
 /* Section heading */
 .section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;}
-.section-head h2{font-size:2rem;}
+.section-head h2{font-size:var(--fs-h1);font-weight:var(--fw-h1);line-height:var(--lh-h1);letter-spacing:var(--ls-h1);}
 .section-head a{font-family:var(--font-head);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);border-bottom:1px solid var(--orange);padding-bottom:2px;}
 
 /* Article grid */
 .article-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:2rem;}
 .article-card{display:block;}
-.article-thumb{background:var(--gray-200);aspect-ratio:8/5;border-radius:4px;overflow:hidden;position:relative;margin-bottom:1rem;}
+.article-thumb{background:var(--gray-200);aspect-ratio:8/5;border-radius:var(--radius-card);overflow:hidden;position:relative;margin-bottom:1rem;}
 .article-thumb img{width:100%;height:100%;object-fit:cover;}
 .article-featured .article-thumb{aspect-ratio:16/9;}
 .article-cat{font-family:var(--font-head);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem;display:block;}
@@ -92,14 +118,14 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 /* Power backup comparison */
 .power-intro{max-width:680px;color:var(--gray-500);margin-bottom:2.5rem;font-size:1rem;}
 .power-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-.power-card{background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:1.6rem;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s;}
+.power-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-card);padding:1.6rem;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s;}
 .power-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-3px);}
 .power-card.power-featured{border:2px solid var(--orange);}
-.power-thumb{background:var(--gray-100);aspect-ratio:1/1;border-radius:4px;margin-bottom:1rem;overflow:hidden;}
+.power-thumb{background:var(--gray-100);aspect-ratio:1/1;border-radius:var(--radius-card);margin-bottom:1rem;overflow:hidden;}
 .power-thumb img{width:100%;height:100%;object-fit:cover;}
-.power-badge{display:inline-block;font-family:var(--font-head);font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);background:#fff1e2;padding:.25rem .6rem;border-radius:3px;margin-bottom:.6rem;align-self:flex-start;}
+.power-badge{display:inline-block;font-family:var(--font-head);font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);background:#fff1e2;padding:.25rem .6rem;border-radius:var(--radius-card);margin-bottom:.6rem;align-self:flex-start;}
 .power-brand{font-family:var(--font-head);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);margin-bottom:.2rem;}
-.power-card h4{font-size:1.05rem;color:var(--gray-900);margin-bottom:.8rem;line-height:1.3;}
+.power-card h4{font-size:var(--fs-h4);font-weight:var(--fw-h4);text-transform:uppercase;color:var(--gray-900);margin-bottom:.8rem;line-height:1.3;}
 .power-specs{list-style:none;font-size:.85rem;color:var(--gray-700);margin-bottom:1rem;border-top:1px solid var(--gray-200);padding-top:.8rem;}
 .power-specs li{display:flex;justify-content:space-between;padding:.28rem 0;}
 .power-specs li span:first-child{color:var(--gray-500);}
@@ -107,7 +133,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .power-best{font-size:.82rem;color:var(--gray-500);font-style:italic;margin-bottom:1rem;}
 .power-price{font-family:var(--font-head);font-size:1.15rem;color:var(--gray-900);margin-bottom:.9rem;}
 .power-card .btn-check{margin-top:auto;}
-.btn-check{display:block;background:var(--gray-900);color:var(--white);font-family:var(--font-head);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;padding:.7rem;border-radius:3px;transition:background .15s;}
+.btn-check{display:block;background:var(--gray-900);color:var(--white);font-family:var(--font-head);font-size:.78rem;font-weight:600;letter-spacing:normal;text-transform:uppercase;text-align:center;padding:var(--btn-sm-pad);border-radius:var(--radius-btn);transition:background .15s;}
 .btn-check:hover{background:var(--orange);}
 @media (max-width:900px){.power-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:600px){.power-grid{grid-template-columns:1fr;}}
@@ -121,10 +147,10 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 
 /* Category banner grid (3-up, image bg, no price) */
 .banner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.banner-card{position:relative;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end;}
+.banner-card{position:relative;aspect-ratio:4/3;border-radius:var(--radius-card);overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end;}
 .banner-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0) 40%,rgba(20,20,20,.75) 100%);}
 .banner-content{position:relative;z-index:1;padding:1.6rem;color:var(--white);}
-.banner-content h3{color:var(--white);font-size:1.35rem;line-height:1.25;margin-bottom:.9rem;}
+.banner-content h3{color:var(--white);font-size:var(--fs-card-title);font-weight:var(--fw-card-title);letter-spacing:var(--ls-card-title);text-transform:uppercase;line-height:1.2;margin-bottom:.9rem;}
 .banner-shop{font-family:var(--font-head);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--white);border-bottom:1px solid var(--orange);padding-bottom:2px;display:inline-flex;align-items:center;gap:.35rem;}
 .banner-card:hover .banner-shop{color:var(--orange);}
 @media (max-width:900px){.banner-grid{grid-template-columns:1fr;}}
@@ -132,14 +158,17 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 /* About / essentials split */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
 .about-media{position:relative;}
-.about-media-main{border-radius:4px;overflow:hidden;aspect-ratio:5/4;}
+.about-media-main{border-radius:var(--radius-card);overflow:hidden;aspect-ratio:5/4;}
 .about-media-main img{width:100%;height:100%;object-fit:cover;}
-.about-media-overlay{position:absolute;right:-8%;bottom:-12%;width:58%;border-radius:4px;overflow:hidden;aspect-ratio:5/4;border:6px solid var(--white);box-shadow:0 12px 30px rgba(0,0,0,.15);}
+.about-media-overlay{position:absolute;right:-8%;bottom:-12%;width:58%;border-radius:var(--radius-card);overflow:hidden;aspect-ratio:5/4;border:6px solid var(--white);box-shadow:0 12px 30px rgba(0,0,0,.15);}
 .about-media-overlay img{width:100%;height:100%;object-fit:cover;}
 .about-dots{position:absolute;left:-8%;bottom:6%;width:120px;height:80px;background-image:radial-gradient(var(--gray-200) 1.5px,transparent 1.5px);background-size:12px 12px;z-index:-1;}
 .about-content p{color:var(--gray-500);margin-bottom:1.2rem;max-width:480px;}
 .about-content h2{font-size:2rem;margin-bottom:1.2rem;}
-.about-content .btn-outline-dark{display:inline-block;border:1px solid var(--gray-900);color:var(--gray-900);font-family:var(--font-head);font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;padding:.9rem 1.8rem;border-radius:3px;transition:background .15s,color .15s;}
+.essentials-stats{display:flex;gap:2.2rem;margin-bottom:2rem;padding-top:.5rem;}
+.essentials-stat strong{display:block;font-family:var(--font-head);font-size:1.9rem;font-weight:700;color:var(--gray-900);line-height:1;margin-bottom:.4rem;}
+.essentials-stat span{font-size:.78rem;color:var(--gray-500);}
+.about-content .btn-outline-dark{display:inline-block;border:1px solid var(--gray-900);color:var(--gray-900);font-family:var(--font-head);font-size:.82rem;font-weight:600;letter-spacing:normal;text-transform:uppercase;padding:var(--btn-sm-pad);border-radius:var(--radius-btn);transition:background .15s,color .15s;}
 .about-content .btn-outline-dark:hover{background:var(--gray-900);color:var(--white);}
 @media (max-width:900px){.about-grid{grid-template-columns:1fr;}.about-media{margin-bottom:4rem;}}
 
@@ -147,7 +176,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .products-carousel{position:relative;}
 .products-track{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:.3rem;}
 .products-track::-webkit-scrollbar{display:none;}
-.product-card{flex:0 0 calc(25% - 1.13rem);scroll-snap-align:start;border:1px solid var(--gray-200);border-radius:6px;padding:1.2rem;position:relative;display:flex;flex-direction:column;background:var(--white);}
+.product-card{flex:0 0 calc(25% - 1.13rem);scroll-snap-align:start;border:1px solid var(--gray-200);border-radius:var(--radius-card);padding:1.2rem;position:relative;display:flex;flex-direction:column;background:var(--white);}
 .product-badge{position:absolute;top:0;left:0;background:#e05252;color:var(--white);font-family:var(--font-head);font-size:.68rem;font-weight:600;letter-spacing:.04em;padding:.3rem .7rem;}
 .product-badge.oos{top:1.9rem;background:var(--gray-900);}
 .product-thumb{aspect-ratio:1/1;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -157,7 +186,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .product-stars{color:var(--orange);font-size:.85rem;margin-bottom:.9rem;letter-spacing:1px;}
 .product-stars .empty{color:var(--gray-200);}
 .product-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--gray-100);padding-top:.9rem;margin-top:auto;}
-.product-price{font-family:var(--font-head);font-size:1rem;color:var(--gray-900);}
+.product-price{font-family:var(--font-head);font-size:var(--fs-price);font-weight:var(--fw-price);letter-spacing:var(--ls-price);color:var(--gray-900);}
 .product-price .old{font-family:var(--font-body);font-size:.82rem;color:var(--gray-400);text-decoration:line-through;display:block;font-weight:400;}
 .product-price.sale{color:var(--orange);}
 .product-action{font-family:var(--font-head);font-size:.75rem;letter-spacing:.03em;text-transform:uppercase;color:var(--gray-900);display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap;}
@@ -171,14 +200,44 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 @media (max-width:900px){.product-card{flex:0 0 calc(50% - .75rem);}}
 @media (max-width:600px){.product-card{flex:0 0 78%;}}
 
+/* Featured guides */
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.guide-card{display:block;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-card);overflow:hidden;}
+.guide-thumb{aspect-ratio:16/10;overflow:hidden;}
+.guide-thumb img{width:100%;height:100%;object-fit:cover;}
+.guide-body{padding:1.5rem;}
+.guide-cat{font-family:var(--font-head);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem;display:block;}
+.guide-card h4{font-size:var(--fs-h4);font-weight:var(--fw-h4);text-transform:uppercase;margin-bottom:.6rem;line-height:1.3;}
+.guide-card p{font-size:.88rem;color:var(--gray-500);margin-bottom:1.1rem;}
+.guide-link{font-family:var(--font-head);font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--gray-900);border-bottom:1px solid var(--gray-900);padding-bottom:2px;}
+.guide-card:hover .guide-link{color:var(--orange);border-color:var(--orange);}
+@media (max-width:900px){.guide-grid{grid-template-columns:1fr;}}
+
+/* What's Your Adventure? — accordion image gallery */
+.adventure-gallery{display:flex;gap:var(--grid-gap);align-items:flex-start;}
+.adventure-panel{display:flex;flex-direction:column;flex:1 1 0%;min-width:0;transition:flex 0.5s cubic-bezier(.4,0,.2,1);}
+.adventure-img{height:380px;overflow:hidden;background-size:cover;background-position:center;}
+.adventure-panel:hover{flex:1.1 1 0%;}
+.adventure-caption{padding:1.2rem 0 0;text-align:center;}
+.adventure-caption h4{color:var(--gray-900);white-space:nowrap;}
+@media (max-width:900px){
+  .adventure-gallery{flex-wrap:wrap;}
+  .adventure-panel{flex:1 1 45%;}
+  .adventure-img{height:220px;}
+  .adventure-panel:hover{flex:1 1 45%;}
+}
+@media (max-width:560px){
+  .adventure-panel{flex:1 1 100%;}
+}
+
 /* Glamping destinations */
 .destination-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.destination-card{border-radius:6px;overflow:hidden;border:1px solid var(--gray-200);}
+.destination-card{border-radius:var(--radius-card);overflow:hidden;border:1px solid var(--gray-200);}
 .destination-thumb{aspect-ratio:4/3;background:var(--gray-200);}
 .destination-thumb img{width:100%;height:100%;object-fit:cover;}
 .destination-body{padding:1.4rem;}
 .destination-region{font-family:var(--font-head);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem;display:block;}
-.destination-card h4{font-size:1.1rem;margin-bottom:.5rem;}
+.destination-card h4{font-size:var(--fs-h4);font-weight:var(--fw-h4);text-transform:uppercase;margin-bottom:.5rem;}
 .destination-card p{font-size:.88rem;color:var(--gray-500);margin-bottom:1rem;}
 .destination-card a.destination-link{font-family:var(--font-head);font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--gray-900);border-bottom:1px solid var(--gray-900);padding-bottom:2px;}
 .destination-card a.destination-link:hover{color:var(--orange);border-color:var(--orange);}
@@ -188,7 +247,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .faq-split{background:var(--gray-900);color:#ccc;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}
 .faq-split-content{padding:90px 60px 90px 24px;max-width:620px;margin-left:auto;}
 .faq-split-content .eyebrow{margin-bottom:1rem;}
-.faq-split-content h2{color:var(--white);font-size:2.1rem;line-height:1.2;margin-bottom:1.1rem;}
+.faq-split-content h2{color:var(--white);font-size:var(--fs-h1);font-weight:var(--fw-h1);line-height:var(--lh-h1);letter-spacing:var(--ls-h1);margin-bottom:1.1rem;}
 .faq-split-content>p{color:#aaa;margin-bottom:2.2rem;max-width:480px;}
 .faq-split-media{position:relative;min-height:460px;background:var(--gray-700);}
 .faq-split-media img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -202,7 +261,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .faq-toggle::before{content:"+";}
 .faq-item-dark[open] .faq-toggle{background:var(--orange);color:var(--white);border-color:var(--orange);}
 .faq-item-dark[open] .faq-toggle::before{content:"\2212";}
-.faq-answer-box{background:rgba(232,118,10,.1);border-left:2px solid var(--orange);border-radius:0 4px 4px 0;padding:1.1rem 1.3rem;margin:0 0 1.4rem 1.15rem;}
+.faq-answer-box{background:rgba(232,118,10,.1);border-left:2px solid var(--orange);border-radius:var(--radius-card);padding:1.1rem 1.3rem;margin:0 0 1.4rem 1.15rem;}
 .faq-answer-label{font-family:var(--font-head);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem;display:flex;align-items:center;gap:.35rem;}
 .faq-answer-box p{color:#ddd;font-size:.9rem;margin:0;}
 @media (max-width:900px){
@@ -218,23 +277,30 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
     repeating-linear-gradient(25deg, rgba(255,255,255,.03) 0px, rgba(255,255,255,.03) 1px, transparent 1px, transparent 110px);
   padding:80px 0;
 }
-.toppicks-heading{color:var(--white);text-align:center;margin-bottom:2.5rem;font-size:1.9rem;}
+.toppicks .eyebrow{margin-bottom:.6rem;}
+.toppicks-heading{color:var(--white);text-align:center;margin-bottom:2.5rem;font-size:var(--fs-h5);font-weight:var(--fw-h5);line-height:var(--lh-h5);letter-spacing:var(--ls-h5);text-transform:uppercase;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+.process-step{border-top:2px solid var(--gray-900);padding-top:1.2rem;}
+.process-step h4{font-size:var(--fs-h4);font-weight:var(--fw-h4);text-transform:uppercase;margin:.6rem 0 .6rem;}
+.process-step p{font-size:.88rem;color:var(--gray-500);}
+@media (max-width:900px){.process-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.process-grid{grid-template-columns:1fr;}}
 .toppicks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-.toppicks-promo{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4;background-size:cover;background-position:center;display:flex;align-items:flex-end;}
+.toppicks-promo{position:relative;border-radius:var(--radius-card);overflow:hidden;aspect-ratio:3/4;background-size:cover;background-position:center;display:flex;align-items:flex-end;}
 .toppicks-promo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.05) 0%,rgba(10,10,10,.55) 65%,rgba(10,10,10,.8) 100%);}
 .toppicks-promo-content{position:relative;z-index:1;padding:2rem 1.4rem;color:var(--white);width:100%;text-align:center;}
 .toppicks-badge-label{font-family:var(--font-head);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;color:#eee;}
 .toppicks-badge-num{font-family:var(--font-head);font-size:2.8rem;font-weight:700;line-height:1;}
 .toppicks-badge-off{font-family:var(--font-head);font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem;}
 .toppicks-desc{font-size:.92rem;color:#eee;margin-bottom:1.4rem;}
-.toppicks-btn{display:inline-block;border:1px solid var(--white);color:var(--white);font-family:var(--font-head);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;padding:.8rem 1.6rem;transition:background .15s,color .15s;}
+.toppicks-btn{display:inline-block;border:1px solid var(--white);color:var(--white);font-family:var(--font-head);font-size:.75rem;font-weight:600;letter-spacing:normal;text-transform:uppercase;padding:var(--btn-sm-pad);border-radius:var(--radius-btn);transition:background .15s,color .15s;}
 .toppicks-btn:hover{background:var(--white);color:var(--gray-900);}
-.toppicks-product{background:var(--white);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;}
+.toppicks-product{background:var(--white);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;}
 .toppicks-product-img{aspect-ratio:1/1;background:var(--gray-100);}
 .toppicks-product-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .toppicks-product-body{padding:1.2rem;}
 .toppicks-cat{font-size:.78rem;color:var(--gray-400);margin-bottom:.3rem;}
-.toppicks-product-body h4{font-size:.95rem;line-height:1.35;margin-bottom:.5rem;font-family:var(--font-body);font-weight:600;color:var(--gray-900);}
+.toppicks-product-body h4{font-size:var(--fs-h4);line-height:1.35;margin-bottom:.5rem;font-family:var(--font-head);font-weight:var(--fw-h4);text-transform:uppercase;color:var(--gray-900);}
 .toppicks-price-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--gray-100);padding-top:.8rem;margin-top:.4rem;}
 @media (max-width:900px){.toppicks-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:600px){.toppicks-grid{grid-template-columns:1fr;}}
@@ -252,7 +318,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .stats-head{text-align:center;max-width:760px;margin:0 auto 3.5rem;}
 .stats-head .eyebrow{color:#ddd;justify-content:center;display:flex;align-items:center;gap:.7rem;}
 .stats-head .eyebrow::before,.stats-head .eyebrow::after{content:"";width:28px;height:1px;background:rgba(255,255,255,.4);}
-.stats-head h2{color:var(--white);font-size:2.2rem;line-height:1.25;margin-bottom:1rem;}
+.stats-head h2{color:var(--white);font-size:var(--fs-h1);font-weight:var(--fw-h1);line-height:var(--lh-h1);letter-spacing:var(--ls-h1);margin-bottom:1rem;}
 .stats-head p{color:#ddd;font-style:italic;font-size:1.05rem;}
 .stats-row{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.25);}
 .stats-col{padding:1.8rem 1.6rem;border-right:1px solid rgba(255,255,255,.25);}
@@ -264,8 +330,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 @media (max-width:560px){.stats-row{grid-template-columns:1fr;}}
 
 /* Promo banner */
-.promo{background:var(--gray-900);color:var(--white);border-radius:8px;padding:3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;}
-.promo h3{color:var(--white);font-size:1.6rem;margin-bottom:.5rem;}
+.promo{background:var(--gray-900);color:var(--white);border-radius:var(--radius-card);padding:3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;}
+.promo h3{color:var(--white);font-size:var(--fs-h6);font-weight:var(--fw-h6);line-height:var(--lh-h6);letter-spacing:var(--ls-h6);text-transform:uppercase;margin-bottom:.5rem;}
 .promo p{color:#bbb;max-width:420px;}
 
 /* Topic pills */
@@ -276,19 +342,51 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 /* News strip */
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
 .news-item{border-top:2px solid var(--gray-900);padding-top:1rem;}
-.news-thumb{aspect-ratio:16/9;border-radius:4px;overflow:hidden;margin-bottom:1rem;}
+.news-thumb{aspect-ratio:16/9;border-radius:var(--radius-card);overflow:hidden;margin-bottom:1rem;}
 .news-thumb img{width:100%;height:100%;object-fit:cover;}
 .news-date{font-size:.75rem;color:var(--gray-400);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.5rem;display:block;}
 .news-item h4{font-size:1.05rem;margin-bottom:.4rem;}
 .news-item h4 a:hover{color:var(--orange);}
 .news-item p{font-size:.9rem;color:var(--gray-500);}
 
+/* Blog: featured post + side list */
+.blog-header-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;gap:2rem;flex-wrap:wrap;}
+.blog-heading{font-size:var(--fs-h3);font-weight:var(--fw-h3);line-height:var(--lh-h3);letter-spacing:var(--ls-h3);text-transform:uppercase;}
+.blog-pill{flex-shrink:0;display:inline-flex;align-items:center;gap:.4rem;background:var(--gray-900);color:var(--white);font-family:var(--font-head);font-size:.8rem;font-weight:600;letter-spacing:var(--ls-body);text-transform:uppercase;padding:var(--btn-lg-pad);border-radius:var(--radius-btn);transition:background .15s;}
+.blog-pill:hover{background:var(--orange);}
+.blog-feature-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:2.5rem;align-items:start;}
+.blog-feature{display:block;}
+.blog-feature-img{aspect-ratio:16/11;border-radius:var(--radius-card);overflow:hidden;}
+.blog-feature-img img{width:100%;height:100%;object-fit:cover;}
+.blog-feature-card{background:var(--gray-100);border-radius:var(--radius-card);padding:2rem;}
+.blog-feature-card h3{font-size:var(--fs-card-title);font-weight:var(--fw-card-title);letter-spacing:var(--ls-card-title);text-transform:uppercase;line-height:1.2;margin-bottom:.8rem;}
+.blog-feature-card p{font-size:.92rem;color:var(--gray-500);margin-bottom:1.4rem;}
+.blog-feature-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;}
+.blog-cat{font-family:var(--font-head);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);}
+.blog-continue{font-family:var(--font-head);font-size:.78rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--gray-900);}
+.blog-feature:hover .blog-continue{color:var(--orange);}
+.blog-side-list{display:flex;flex-direction:column;gap:2.2rem;}
+.blog-side-item{display:flex;gap:1.5rem;align-items:flex-start;}
+.blog-side-thumb{flex-shrink:0;width:38%;aspect-ratio:16/10;border-radius:var(--radius-card);overflow:hidden;}
+.blog-side-thumb img{width:100%;height:100%;object-fit:cover;}
+.blog-side-body h4{font-size:var(--fs-h4);font-weight:var(--fw-h4);text-transform:uppercase;line-height:1.35;margin-bottom:.5rem;}
+.blog-side-body p{font-size:.85rem;color:var(--gray-500);}
+.blog-side-item:hover h4{color:var(--orange);}
+@media (max-width:900px){
+  .blog-feature-grid{grid-template-columns:1fr;}
+  .blog-side-thumb{width:34%;}
+}
+@media (max-width:560px){
+  .blog-side-item{flex-direction:column;}
+  .blog-side-thumb{width:100%;}
+}
+
 /* Newsletter */
 .newsletter{text-align:center;}
-.newsletter h2{color:var(--white);font-size:2rem;margin-bottom:.6rem;}
+.newsletter h2{color:var(--white);font-size:var(--fs-h1);font-weight:var(--fw-h1);line-height:var(--lh-h1);letter-spacing:var(--ls-h1);margin-bottom:.6rem;}
 .newsletter p{color:#bbb;margin-bottom:1.8rem;}
 .newsletter-form{display:flex;justify-content:center;gap:.8rem;max-width:460px;margin:0 auto;}
-.newsletter-form input{flex:1;padding:.9rem 1rem;border-radius:3px;border:1px solid #444;background:#242424;color:var(--white);font-family:var(--font-body);}
+.newsletter-form input{flex:1;padding:.9rem 1rem;border-radius:var(--radius-card);border:1px solid #444;background:#242424;color:var(--white);font-family:var(--font-body);}
 .newsletter-form input::placeholder{color:#888;}
 
 @media (max-width:900px){
@@ -335,6 +433,11 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .article-card{transition:transform .2s ease;}
 .article-card:hover{transform:translateY(-3px);}
 
+.guide-card{transition:transform .25s ease,box-shadow .25s ease;}
+.guide-card:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(0,0,0,.1);}
+.guide-thumb img{transition:transform .4s ease;}
+.guide-card:hover .guide-thumb img{transform:scale(1.06);}
+
 .destination-card{transition:transform .25s ease,box-shadow .25s ease;}
 .destination-card:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(0,0,0,.1);}
 .destination-thumb img{transition:transform .4s ease;}
@@ -344,6 +447,11 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 .news-item:hover{transform:translateY(-3px);}
 .news-thumb img{transition:transform .4s ease;}
 .news-item:hover .news-thumb img{transform:scale(1.06);}
+
+.blog-feature-img img,.blog-side-thumb img{transition:transform .4s ease;}
+.blog-feature:hover .blog-feature-img img,.blog-side-item:hover .blog-side-thumb img{transform:scale(1.06);}
+.blog-pill{transition:background .15s ease,transform .15s ease;}
+.blog-pill:hover{transform:translateY(-2px);}
 
 .carousel-arrow{transition:border-color .15s ease,transform .15s ease;}
 .carousel-arrow:hover{transform:scale(1.08);}
@@ -366,9 +474,31 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
         <a href="articles.html" class="btn btn-primary">Browse Articles</a>
         <a href="solar.html" class="btn btn-outline">Solar Guides</a>
       </div>
+      <div class="hero-tags">
+        <div class="hero-tag"><strong>4</strong><span>Core categories covered</span></div>
+        <div class="hero-tag"><strong>7+</strong><span>In-depth guides &amp; reviews</span></div>
+        <div class="hero-tag"><strong>0</strong><span>Sponsored fluff — ever</span></div>
+      </div>
     </div>
   </div>
 </section>
+
+<div class="trust-bar">
+  <div class="trust-track">
+    <span class="trust-item">Solar Power</span>
+    <span class="trust-item">Off-Grid Living</span>
+    <span class="trust-item">Van Life</span>
+    <span class="trust-item">Camping &amp; Glamping</span>
+    <span class="trust-item">Portable Power</span>
+    <span class="trust-item">Gear Reviews</span>
+    <span class="trust-item">Solar Power</span>
+    <span class="trust-item">Off-Grid Living</span>
+    <span class="trust-item">Van Life</span>
+    <span class="trust-item">Camping &amp; Glamping</span>
+    <span class="trust-item">Portable Power</span>
+    <span class="trust-item">Gear Reviews</span>
+  </div>
+</div>
 
 <div class="wrap home-ad-banner">
   <a href="https://www.kqzyfj.com/click-101826268-17227808" target="_blank" rel="sponsored noopener">
@@ -376,8 +506,12 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </a>
 </div>
 
-<section class="section reveal" style="padding-top:0;">
+<section class="section reveal">
   <div class="wrap">
+    <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;gap:.6rem;">
+      <div class="eyebrow" style="justify-content:center;">What We Cover</div>
+      <h2>Guides Across Every Off-Grid Category</h2>
+    </div>
     <div class="banner-grid">
       <a href="solar.html" class="banner-card" style="background-image:url('https://picsum.photos/seed/gridescape-solar-power-backup/500/400');">
         <div class="banner-content">
@@ -401,91 +535,78 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
   </div>
 </section>
 
-<section class="section section-alt reveal">
+<section class="section reveal" style="padding-top:0;">
   <div class="wrap">
-    <div class="section-head" style="justify-content:center;text-align:center;">
-      <h2>Special Products</h2>
+    <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;gap:.6rem;">
+      <div class="eyebrow" style="justify-content:center;">Find Your Path</div>
+      <h2>What's Your Adventure?</h2>
     </div>
-    <div class="products-carousel">
-      <div class="products-track" id="specialProductsTrack">
-
-        <div class="product-card">
-          <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-product-headlamp/260/260" alt="Rechargeable LED headlamp" loading="lazy"></div>
-          <div class="product-cat">Camping, Van Life</div>
-          <h4>Rechargeable LED Headlamp for Off-Grid Nights</h4>
-          <div class="product-stars">★★★☆<span class="empty">☆</span></div>
-          <div class="product-bottom">
-            <div class="product-price">$34.99</div>
-            <a href="#" class="product-action">+ Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-product-solarpanel/260/260" alt="Portable folding solar panel" loading="lazy"></div>
-          <div class="product-cat">Solar, Van Life</div>
-          <h4>100W Portable Folding Solar Panel</h4>
-          <div class="product-stars">★★★★<span class="empty">☆</span></div>
-          <div class="product-bottom">
-            <div class="product-price">$189.00</div>
-            <a href="#" class="product-action">+ Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-badge">24% OFF</div>
-          <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-product-powerstation/260/260" alt="Compact portable power station" loading="lazy"></div>
-          <div class="product-cat">Solar, Camping</div>
-          <h4>Compact Portable Power Station – 500Wh</h4>
-          <div class="product-stars">★★★★<span class="empty">☆</span></div>
-          <div class="product-bottom">
-            <div class="product-price sale">$379.00<span class="old">$499.00</span></div>
-            <a href="#" class="product-action">+ Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-badge">77% OFF</div>
-          <div class="product-badge oos">Out Of Stock</div>
-          <div class="product-thumb"><img src="https://picsum.photos/seed/gridescape-product-trailboots/260/260" alt="Insulated trail boots" loading="lazy"></div>
-          <div class="product-cat">Hiking, Camping</div>
-          <h4>Insulated Trail Boots, Weatherproof</h4>
-          <div class="product-stars">★★★★<span class="empty">☆</span></div>
-          <div class="product-bottom">
-            <div class="product-price sale">$59.00<span class="old">$249.00</span></div>
-            <a href="#" class="product-action">+ Read More</a>
-          </div>
-        </div>
-
-      </div>
-      <div class="carousel-controls">
-        <div class="carousel-arrow" onclick="document.getElementById('specialProductsTrack').scrollBy({left:-280,behavior:'smooth'})">‹</div>
-        <div class="carousel-dots" id="specialProductsDots"></div>
-        <div class="carousel-arrow" onclick="document.getElementById('specialProductsTrack').scrollBy({left:280,behavior:'smooth'})">›</div>
-      </div>
+    <div class="adventure-gallery">
+      <a href="solar.html" class="adventure-panel">
+        <div class="adventure-img" style="background-image:url('https://picsum.photos/seed/gridescape-adventure-solar/500/700');"></div>
+        <div class="adventure-caption"><h4>Solar</h4></div>
+      </a>
+      <a href="articles.html#vanlife" class="adventure-panel">
+        <div class="adventure-img" style="background-image:url('https://picsum.photos/seed/gridescape-adventure-vanlife/500/700');"></div>
+        <div class="adventure-caption"><h4>Van Life</h4></div>
+      </a>
+      <a href="articles.html#camping" class="adventure-panel">
+        <div class="adventure-img" style="background-image:url('https://picsum.photos/seed/gridescape-adventure-camping/500/700');"></div>
+        <div class="adventure-caption"><h4>Camping</h4></div>
+      </a>
+      <a href="articles.html#camping" class="adventure-panel">
+        <div class="adventure-img" style="background-image:url('https://picsum.photos/seed/gridescape-adventure-glamping/500/700');"></div>
+        <div class="adventure-caption"><h4>Glamping</h4></div>
+      </a>
+      <a href="tools.html" class="adventure-panel">
+        <div class="adventure-img" style="background-image:url('https://picsum.photos/seed/gridescape-adventure-gear/500/700');"></div>
+        <div class="adventure-caption"><h4>Gear &amp; Tools</h4></div>
+      </a>
     </div>
   </div>
 </section>
 
-<script>
-(function(){
-  var track = document.getElementById('specialProductsTrack');
-  var dotsWrap = document.getElementById('specialProductsDots');
-  if(!track || !dotsWrap) return;
-  var cards = track.children.length;
-  for(var i=0;i<cards;i++){
-    var d = document.createElement('span');
-    if(i===0) d.className = 'active';
-    dotsWrap.appendChild(d);
-  }
-  track.addEventListener('scroll', function(){
-    var cardWidth = track.children[0].offsetWidth + 24;
-    var index = Math.round(track.scrollLeft / cardWidth);
-    Array.prototype.forEach.call(dotsWrap.children, function(dot, i){
-      dot.className = i === index ? 'active' : '';
-    });
-  });
-})();
-</script>
+<section class="section section-alt reveal">
+  <div class="wrap">
+    <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;gap:.6rem;">
+      <div class="eyebrow" style="justify-content:center;">Start Here</div>
+      <h2>Featured Guides</h2>
+    </div>
+    <div class="guide-grid">
+
+      <a href="solar-power-101-off-grid-basics.html" class="guide-card">
+        <div class="guide-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/solar-off-grid-cabin.png" alt="Off-grid cabin powered by solar panels" loading="lazy"></div>
+        <div class="guide-body">
+          <span class="guide-cat">Solar</span>
+          <h4>Solar Power 101: Off-Grid Basics</h4>
+          <p>The foundational concepts — panels, batteries, charge controllers, and how they all fit together.</p>
+          <span class="guide-link">Read Guide →</span>
+        </div>
+      </a>
+
+      <a href="van-life-electrical-basics.html" class="guide-card">
+        <div class="guide-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/van-life-electrical.png" alt="Van life electrical system setup" loading="lazy"></div>
+        <div class="guide-body">
+          <span class="guide-cat">Van Life</span>
+          <h4>Van Life Electrical Basics</h4>
+          <p>What it actually takes to wire a van for full-time living, from battery banks to inverters.</p>
+          <span class="guide-link">Read Guide →</span>
+        </div>
+      </a>
+
+      <a href="camping-power-watt-hours-guide.html" class="guide-card">
+        <div class="guide-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/camping-power.png" alt="Camping power station charging devices at a campsite" loading="lazy"></div>
+        <div class="guide-body">
+          <span class="guide-cat">Camping</span>
+          <h4>Camping Power &amp; Watt-Hours, Explained</h4>
+          <p>How to translate watt-hour ratings into "will this actually run what I need it to."</p>
+          <span class="guide-link">Read Guide →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
 
 <script>
 (function(){
@@ -531,7 +652,43 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
         <h2>Everything you need before you head off-grid.</h2>
         <p>From power banks to base layers, the right gear is the difference between a trip that goes smoothly and one that ends early. We've put together the essentials worth packing, whether you're headed out for a weekend or living off-grid full time.</p>
         <p>Our picks cover portable power, lighting, cookware, and cold-weather layers — tested against real camping and van life conditions, not just spec sheets.</p>
+        <div class="essentials-stats">
+          <div class="essentials-stat"><strong>7+</strong><span>Guides &amp; reviews</span></div>
+          <div class="essentials-stat"><strong>4</strong><span>Core categories</span></div>
+          <div class="essentials-stat"><strong>100%</strong><span>Reader-focused</span></div>
+        </div>
         <a href="tools.html" class="btn-outline-dark">Explore Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt reveal">
+  <div class="wrap">
+    <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;gap:.6rem;">
+      <div class="eyebrow" style="justify-content:center;">Our Process</div>
+      <h2>How We Pick Gear</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="stats-index" style="color:var(--gray-400);">01</span>
+        <h4>Research</h4>
+        <p>We start with the spec sheets, manufacturer claims, and what real owners report after months of use.</p>
+      </div>
+      <div class="process-step">
+        <span class="stats-index" style="color:var(--gray-400);">02</span>
+        <h4>Compare</h4>
+        <p>Capacity, output, recharge speed, and weight — lined up side by side against similar gear in its class.</p>
+      </div>
+      <div class="process-step">
+        <span class="stats-index" style="color:var(--gray-400);">03</span>
+        <h4>Match to Use Case</h4>
+        <p>The "best" station or panel depends on the trip. We sort picks by who they actually fit.</p>
+      </div>
+      <div class="process-step">
+        <span class="stats-index" style="color:var(--gray-400);">04</span>
+        <h4>Recommend</h4>
+        <p>We only feature gear we'd suggest to a friend — with the trade-offs stated plainly, not buried.</p>
       </div>
     </div>
   </div>
@@ -539,6 +696,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 
 <section class="toppicks reveal">
   <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;display:flex;">Editor's Picks</div>
     <h2 class="toppicks-heading">Top Picks</h2>
     <div class="toppicks-grid">
 
@@ -594,7 +752,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 
 <section class="section section-alt reveal">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" style="flex-direction:column;align-items:flex-start;gap:.6rem;">
+      <div class="eyebrow">Gear Comparison</div>
       <h2>Power Backups: Which Station Fits Your Setup</h2>
     </div>
     <p class="power-intro">Whether you're prepping for storm season, running a weekend camp kitchen, or keeping a home office alive through an outage, a portable power station is the fastest way to stay powered when the grid goes down. We lined up four current standouts — including two from Bluetti — on the specs that actually matter: capacity, output, recharge speed, and weight.</p>
@@ -707,7 +866,10 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 <section class="section reveal">
   <div class="wrap">
     <div class="section-head">
-      <h2>Top Glamping Destinations</h2>
+      <div>
+        <div class="eyebrow">Where To Go</div>
+        <h2>Top Glamping Destinations</h2>
+      </div>
       <a href="articles.html#camping">More Destinations</a>
     </div>
     <div class="destination-grid">
@@ -818,35 +980,63 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;color:var(--gray-900);}
 
 <section class="section reveal">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Latest Articles</h2>
-      <a href="articles.html">View All</a>
+    <div class="blog-header-row">
+      <div>
+        <div class="eyebrow">Explore Off-Grid Living</div>
+        <h2 class="blog-heading">Guides &amp;<br>Inspiration</h2>
+      </div>
+      <a href="articles.html" class="blog-pill">See All Articles →</a>
     </div>
-    <div class="news-grid">
-      <div class="news-item">
-        <div class="news-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/portable-power-campsite.png" alt="Portable power station set up on a table at a campsite" loading="lazy"></div>
-        <span class="news-date">Batteries</span>
-        <h4><a href="best-portable-power-stations-campers.html">Portable Power Stations Compared: Which One Fits Your Trip</a></h4>
-        <p>A side-by-side look at capacity, output, and recharge speed across today's top camping power stations.</p>
-      </div>
-      <div class="news-item">
-        <div class="news-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/first-time-hiker.png" alt="Hiker on a forest trail wearing a daypack and hiking boots" loading="lazy"></div>
-        <span class="news-date">Camping</span>
-        <h4><a href="first-time-hikers-guide.html">First-Time Hikers Guide: What to Pack and What to Skip</a></h4>
-        <p>The essentials worth carrying on your first serious hike, and the "must-haves" that usually aren't.</p>
-      </div>
-      <div class="news-item">
-        <div class="news-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/etrike-campground.png" alt="Older couple riding an electric trike along a campground road" loading="lazy"></div>
-        <span class="news-date">Camping</span>
-        <h4><a href="e-trikes-camping-glamping.html">Bringing Grandma and Grandpa Along: E-Trikes for Camping &amp; Glamping</a></h4>
-        <p>How a stable, easy-to-ride e-trike can help older relatives get around a campground or glamping resort comfortably.</p>
+
+    <div class="blog-feature-grid">
+
+      <a href="best-portable-power-stations-campers.html" class="blog-feature">
+        <div class="blog-feature-img"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/portable-power-campsite.png" alt="Portable power station set up on a table at a campsite" loading="lazy"></div>
+        <div class="blog-feature-card">
+          <h3>Portable Power Stations Compared: Which One Fits Your Trip</h3>
+          <p>A side-by-side look at capacity, output, and recharge speed across today's top camping power stations.</p>
+          <div class="blog-feature-meta">
+            <span class="blog-cat">Batteries</span>
+            <span class="blog-continue">Continue Reading →</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="blog-side-list">
+
+        <a href="first-time-hikers-guide.html" class="blog-side-item">
+          <div class="blog-side-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/first-time-hiker.png" alt="Hiker on a forest trail wearing a daypack and hiking boots" loading="lazy"></div>
+          <div class="blog-side-body">
+            <h4>First-Time Hikers Guide: What to Pack and What to Skip</h4>
+            <p>The essentials worth carrying on your first serious hike, and the "must-haves" that usually aren't.</p>
+          </div>
+        </a>
+
+        <a href="e-trikes-camping-glamping.html" class="blog-side-item">
+          <div class="blog-side-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/etrike-campground.png" alt="Older couple riding an electric trike along a campground road" loading="lazy"></div>
+          <div class="blog-side-body">
+            <h4>Bringing Grandma and Grandpa Along: E-Trikes for Camping &amp; Glamping</h4>
+            <p>How a stable, easy-to-ride e-trike can help older relatives get around a campground or glamping resort comfortably.</p>
+          </div>
+        </a>
+
+        <a href="camping-power-watt-hours-guide.html" class="blog-side-item">
+          <div class="blog-side-thumb"><img src="https://pub-0ad734e16c6e4b9083861efedef42f08.r2.dev/camping-power.png" alt="Camping power station charging devices at a campsite" loading="lazy"></div>
+          <div class="blog-side-body">
+            <h4>Camping Power &amp; Watt-Hours, Explained</h4>
+            <p>How to translate watt-hour ratings into "will this actually run what I need it to."</p>
+          </div>
+        </a>
+
       </div>
     </div>
   </div>
 </section>
 
+
 <section class="section section-dark newsletter reveal">
   <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;display:flex;">Stay Connected</div>
     <h2>Get off-grid tips in your inbox</h2>
     <p>New guides, gear picks, and deals — no spam, unsubscribe anytime.</p>
     <form class="newsletter-form">
